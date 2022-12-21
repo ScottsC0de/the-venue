@@ -1,7 +1,7 @@
+require('dotenv').config();
 // Spotify Web API
 
-// Client ID: 96a82e3e0bf54b649648ee9637ba920c
-// Client Secret: 3edbf44e1049415c9b5542eaf431b1d2
+
 
 // The Venue - title
 // Security Check - login page. are users logging into our site or spotify
@@ -28,8 +28,8 @@
 
 // source: https://www.youtube.com/watch?v=0dmS0He_czs
 const apiController = () => {
-    const clientId = '96a82e3e0bf54b649648ee9637ba920c';
-    const clientSecret = '3edbf44e1049415c9b5542eaf431b1d2';
+    const clientId = process.env.spotifyClientId;
+    const clientSecret = process.env.clientSecret;
 
     const getToken = async () => {
         const result = await fetch('https://accounts.spotify.com/api/token', {
