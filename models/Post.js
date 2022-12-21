@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Playlist extends Model {}
+class Post extends Model {}
 
-Playlist.init(
+Post.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,25 +11,33 @@ Playlist.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    track_name: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    artists_name: {
+    description: {
       type: DataTypes.STRING,
     },
-    album_image: {
-      type: DataTypes.BLOB,
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
-
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
     },
+  },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'playlist',
+    modelName: 'post',
   }
 );
 
-module.exports = Playlist;
+module.exports = Post;
