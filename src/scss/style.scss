@@ -1,0 +1,150 @@
+@use 'mvp';
+$padding-sm: 5px;
+$padding-lg: 10px;
+$padding-xl: 20px;
+:root {
+  --main-bk-color: #ffd500;
+  --main-color: #0d0d0d;
+  --accent-color: #530cc5;
+  --accent-color: #10664c;
+  --white: #efedda;
+  --font-family: 'Share Tech Mono', monospace;
+  --font-size: 16px;
+  --font-size-sm: 14px;
+  --color-link: var(--accent-color);
+}
+
+body {
+  background: var(--main-bk-color);
+  color: var(--main-color);
+  font-family: var(--font-family);
+  padding: $padding-lg;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-size: var(--font-size);
+}
+
+#title {
+  font-family: 'Bungee Shade', sans-serif;
+  font-size: calc(4vw + 25px);
+  margin: 0 auto;
+  color: var(--accent-color);
+  max-width: max-content;
+  background-color: var(--white);
+  border-radius: 100px;
+  padding: $padding-lg;
+  transform: rotate(-3deg);
+  margin: .25em -1rem 1em;
+  box-shadow: #0d0d0d 1vw 1vw;
+}
+.hero {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 20rem;
+  max-width: 100%;
+
+}
+#hero  {
+  @extend .hero;
+  background-image: url('../assets/crowd.jpg');
+}
+#groupieHero  {
+  @extend .hero;
+  background-image: url('../assets/groupies.jpg');
+}
+#heroSub {
+  background-color: var(--accent-color);
+  opacity: 80%;
+  padding: 3px;
+  color: var(--white);
+  max-width: max-content;
+}
+
+.row {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#crowd {
+  max-width: 800px;
+  margin: 0 auto;
+  section {
+    background-color: var(--white);
+    border-bottom: dotted 1px var(--accent-color);
+    margin-bottom: .5rem;
+    padding: $padding-sm;
+    footer {
+      margin: auto 0 0 auto;
+      padding: 0;
+      font-size: var(--font-size-sm);
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  background-color: var(--accent-color);
+  color: var(--white);
+  padding: 0 10px;
+}
+
+table {
+  background-color: var(--white);
+}
+
+table thead {
+  background-color: var(--accent-color);
+}
+
+
+input,
+select,
+textarea {
+  font-family: var(--font-family);
+}
+
+input[type=text],
+textarea {
+  width: calc(100% - 1.6rem);
+}
+
+
+input[type=submit] {
+  border-radius: var(--border-radius);
+  display: inline-block;
+  font-size: medium;
+  font-weight: bold;
+  line-height: var(--line-height);
+  margin: 0.5rem 0;
+  padding: .5rem;
+}
+.icon::before {
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+
+#playlist li {
+  list-style:none;
+}
+#playlist li::before {
+  content: "▶️";
+  margin-right: $padding-lg;
+  height: 30px;
+  width: 30px;
+}
+article aside {
+  border-left: 4px solid var(--accent-color);
+}
+#login img {
+  max-width: 400px;
+}
