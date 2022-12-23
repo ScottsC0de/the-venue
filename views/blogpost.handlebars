@@ -1,20 +1,20 @@
-  <h2>This is the Blogpost section</h2>
-  <article>
-    <h3>{{post.title}}</h3>
-    <p>{{post.song}} by {{post.artist}}</p>
-    {{post.text}}
-    <aside>{{post.username}} at {{post.timestamp}}</aside>
-    
-  </article>
-  <div id="crowd">
-    <h3>The Crowd</h3>
-    {{>blogcomments}}
-    <div class="row">
-      <form action="">
-        <h4>Throw your comment into the crowd</h4>
-        <label for="comment">Comment: </label>
-        <textarea name="comment" id="post_comment" cols="auto" rows="6"></textarea>
-        <input type="submit" value="Submit">
-      </form>
-    </div>
+<h2>This is the Blogpost section</h2>
+<article>
+  <h3>{{post.title}}</h3>
+  <p>{{post.song}} by {{post.artist}}</p>
+  {{post.text}}
+  <aside>{{post.username}} at {{post.timestamp}}</aside>
+
+</article>
+<div id="crowd">
+  <h3>The Crowd</h3>
+  {{>blogcomments}}
+  <div class="row">
+    <form action="">
+      <h4>Throw your comment into the crowd</h4>
+      <label for="comment">Comment: </label>
+      <textarea name="comment" id="post_comment" cols="auto" rows="6"></textarea>
+      <input type="submit" value="Submit">
+    </form>
   </div>
+</div>

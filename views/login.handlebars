@@ -1,28 +1,28 @@
-  <section id="login">
-    <h2>This is the login section</h2>
-    <div class="row">
-      <img src="./public/assets/bouncer.jpg" alt="bouncer">
-      <div>
-        <h2>Security Checkpoint</h2>
-        <p>No cover charge, but you need to be on the guest list to enter</p>
-      </div>
+<section id="login">
+  <h2>This is the login section</h2>
+  <div class="row">
+    <img src="./public/assets/bouncer.jpg" alt="bouncer">
+    <div>
+      <h2>Security Checkpoint</h2>
+      <p>No cover charge, but you need to be on the guest list to enter</p>
     </div>
-    <form action="./controllers/api/users">
+    <form class="form login-form" action="./controllers/api/users">
       <h3>Login</h3>
       <label for="login_email">Email</label>
-      <input type="email" name="login_email">
+      <input type="email" name="login_email" id="email-login">
       <label for="login_pwd">Password</label>
-      <input type="password" name="login_pwd">
+      <input type="password" name="login_pwd" id="password-login">
       <input type="submit" value="Submit">
     </form>
-    <form action="./controllers/api/users">
+    <form class="form signup-form" action="./controllers/api/users">
       <h3>Signup</h3>
       <label for="signup_email">Email</label>
-      <input type="email" name="login_email">
+      <input type="email" name="login_email" id="email-signup">
       <label for="signup_pwd">Password</label>
-      <input type="password" name="login_pwd">
+      <input type="password" name="login_pwd" id="password-signup">
       <label for="signup_pwd_confirm">Confirm Password</label>
       <input type="password" name="signup_pwd_confirm">
       <input type="submit" value="Submit">
     </form>
   </section>
+  <script src="./js/login.js"></script>
