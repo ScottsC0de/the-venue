@@ -18,6 +18,17 @@
     </div>
     <div id="heroSub">Argue with your friends and complete strangers about the music you love</div>
   </div>
+    <nav>
+    <a href="/">Main Stage</a>
+    <!-- If the user is logged in, show a logout button -->
+    {{#if logged_in}}
+    <button id="logout" class="btn-no-style">Logout</button>
+    {{else}}
+    <!-- Otherwise, show a link to login -->
+    <a href="/login">Login</a>
+    {{/if}}
+    <a href="/profile">Back Stage</a>
+  </nav>
   <main>
 
   {{{body}}}
@@ -26,6 +37,10 @@
 
 
 </main>
-
+ <!-- If the user is logged in, load the JS script for when they logout -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
 </body>
 </html>
