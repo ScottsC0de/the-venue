@@ -1,4 +1,12 @@
-// routes for api
-// require express.router
+const router = require('express').Router();
+const userRoutes = require('./userRoutes');
+const playlistRoutes = require('./playlistRoutes');
+const commentRoutes = require('./commentRoutes');
 
-// artist search route 
+
+router.use('/users', userRoutes);
+router.use('/posts', postRoutes);
+router.use('/comments', commentRoutes);
+router.use('/playlist', playlistRoutes);
+
+module.exports = router;

@@ -34,6 +34,7 @@ const loginFormHandler = async (event) => {
         method: 'POST',
          // if we add name back in then replace line 32 with --> body: JSON.stringify({ name, email, password }),
         body: JSON.stringify({ email, password }),
+
         headers: { 'Content-Type': 'application/json' },
       });
   
