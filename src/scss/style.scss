@@ -1,4 +1,6 @@
 @use 'mvp';
+@use 'abstracts' as a;
+
 $padding-sm: 5px;
 $padding-lg: 10px;
 $padding-xl: 20px;
@@ -6,7 +8,7 @@ $padding-xl: 20px;
   --main-bk-color: #ffd500;
   --main-color: #0d0d0d;
   --accent-color: #530cc5;
-  --accent-color: #10664c;
+  --accent-color: #581066;
   --white: #efedda;
   --font-family: 'Share Tech Mono', monospace;
   --font-size: 16px;
