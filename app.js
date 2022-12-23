@@ -4,9 +4,6 @@
 // https://github.com/awicks44/JavaScript-SpotifyAPI
 
 require('dotenv').config();
-// Client ID: 96a82e3e0bf54b649648ee9637ba920c
-// Client Secret: 3edbf44e1049415c9b5542eaf431b1d2
-
 
 // The Venue - title
 // Security Check - login page. are users logging into our site or spotify
@@ -16,8 +13,10 @@ require('dotenv').config();
 // Main Stage - user content to be posted
 // BackStage - user's playlists, songs, etc
 // The Bar - sidebar
-// The Crowd - comment section
-// like button to add song to your spotify account
+
+// The Crowd - comment section of the playlist
+// like button to add to your spotify account
+
 // Groupie - account name
 
 // Future Updates:
@@ -33,6 +32,7 @@ require('dotenv').config();
 // spotify returns a bearer token used to call all their endpoints
 
 // source: https://www.youtube.com/watch?v=0dmS0He_czs
+
 // source: https://www.youtube.com/watch?v=SbelQW2JaDQ&t=417s
 
 // getting spotify data via spotify api
@@ -55,6 +55,7 @@ const apiController = (() => {
         // spotify token
         const data = await result.json();
         return data.access_token;
+
     };
 
     // create spotify api methods
@@ -366,3 +367,4 @@ const appController = ((uiCtrl, apiCtrl) => {
 
 // will need to call a method to load the genres on page load
 appController.init();
+
