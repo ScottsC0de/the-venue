@@ -5,11 +5,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Venue</title>
+  <script src="https://kit.fontawesome.com/febb1adf06.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/mvp.css@1.12/mvp.css"> 
-  <link rel="stylesheet" href="./public/css/styles.css">
+  <link rel="stylesheet" href="./public/css/style.css">
 </head>
 <body>
   <div id="hero">
@@ -19,23 +19,24 @@
     <div id="heroSub">Argue with your friends and complete strangers about the music you love</div>
   </div>
   <main>
-  <section>
+  <section id="login">
     <h2>This is the login section</h2>
     <div class="row">
       <img src="./public/assets/bouncer.jpg" alt="bouncer">
       <div>
         <h2>Security Checkpoint</h2>
-        <p>You need to be on the guest list to enter</p>
+        <p>No cover charge, but you need to be on the guest list to enter</p>
       </div>
     </div>
-    <form action="">
+    <form action="./controllers/api/users">
       <h3>Login</h3>
       <label for="login_email">Email</label>
       <input type="email" name="login_email">
       <label for="login_pwd">Password</label>
       <input type="password" name="login_pwd">
+      <input type="submit" value="Submit">
     </form>
-    <form action="">
+    <form action="./controllers/api/users">
       <h3>Signup</h3>
       <label for="signup_email">Email</label>
       <input type="email" name="login_email">
@@ -43,6 +44,7 @@
       <input type="password" name="login_pwd">
       <label for="signup_pwd_confirm">Confirm Password</label>
       <input type="password" name="signup_pwd_confirm">
+      <input type="submit" value="Submit">
     </form>
   </section>
   
@@ -61,6 +63,94 @@
     </table>
 
   </section>
+
+  <h2>This is the Blogpost section</h2>
+  <article>
+    <h3>{{Post Title}}</h3>
+    <p>{{Song}} by {{Artist}}</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore rerum impedit sapiente cupiditate itaque adipisci, blanditiis repudiandae atque asperiores hic exercitationem, nemo harum quae ab sequi neque est? Sit, adipisci ipsam? Laudantium totam sit adipisci aliquid rerum, recusandae dolor, natus, placeat officia esse nam non. Dolor ducimus vero mollitia amet, explicabo rerum officiis soluta distinctio maxime nobis cumque voluptas eligendi omnis tenetur atque accusantium totam alias consequatur! Dolor fugit voluptates iusto beatae labore ea aut, ipsum eius blanditiis sequi, quibusdam placeat consequatur maiores, quos dolorem? Modi rem nesciunt corporis magni dolore quasi sit officia commodi at, repudiandae vel dolorem beatae?</p>
+    <aside>{{Username}} at {{12:00pm 12/22/22}}</aside>
+    
+  </article>
+  <div id="crowd">
+    <h3>The Crowd</h3>
+    <section>
+      <div>
+        I think this is crazy!!!!
+      </div>
+      <footer>
+        {{Username}} at {{12:00pm 12/22/22}}
+      </footer>
+    </section>
+    <section>
+      <div>
+        I think you're crazy!!!!
+      </div>
+      <footer>
+        {{Username}} at {{12:00pm 12/22/22}}
+      </footer>
+    </section>
+    <section>
+      <div>
+        Nuh uh!!!!
+      </div>
+      <footer>
+        {{Username}} at {{12:00pm 12/22/22}}
+      </footer>
+    </section>
+    <section>
+      <div>
+        Yeah huh!!!!
+      </div>
+      <footer>
+        {{Username}} at {{12:00pm 12/22/22}}
+      </footer>
+    </section>
+    <section>
+      <div>
+        Your mother!!!!
+      </div>
+      <footer>
+        {{Username}} at {{12:00pm 12/22/22}}
+      </footer>
+    </section>
+    <section>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum eos dolorem asperiores nemo sed praesentium consequuntur iste velit vel sint possimus voluptatum, blanditiis debitis, natus nobis et voluptatem minus voluptas. Officiis deserunt ratione modi mollitia, magni voluptatem earum amet doloremque, culpa aliquid aspernatur, repellendus voluptatum explicabo corrupti ex est quisquam.
+      </div>
+      <footer>
+        {{Username}} at {{12:00pm 12/22/22}}
+      </footer>
+    </section>
+    <div class="row">
+      <form action="">
+        <h4>Throw your comment into the crowd</h4>
+        <label for="comment">Comment: </label>
+        <textarea name="comment" id="post_comment" cols="auto" rows="6"></textarea>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+  <div id="backstage">
+    <h3>This is the Backstage section</h3>
+    <div id="groupieHero"></div>
+    <div>
+      <h3>Groupie: {{Username}}</h3>
+      <h4>Playlist Name</h4>
+      <ul id="playlist">
+        <li>{{Jump}} by {{Van Halen}} <a href=""><span>📣 Send to Main Stage</span></a></li>
+        <li>{{Piano Man}} by {{Billy Joel}} <a href=""><span>📣 Send to Main Stage</span></a></li>
+        <li>{{Are You Gonna Go My Way}} by {{Lenny Kravitz}} <a href=""><span>📣 Send to Main Stage</span></a></li>
+        <li>{{Twice as Hard}} by {{The Black Crowes}} <a href=""><span>📣 Send to Main Stage</span></a></li>
+        <li>{{Song for the Dumped}} by {{Ben Folds Five}} <a href=""><span>📣 Send to Main Stage</span></a></li>
+        <li>{{Leaves of Gold}} by {{Eva Cassidy}} <a href=""><span>📣 Send to Main Stage</span></a></li>
+        <li>{{Ring of Fire}} by {{Johnny Cash}} <a href=""><span>📣 Send to Main Stage</span></a></li>
+        <li>{{Angelina}} by {{Louie Prima}} <a href=""><span>📣 Send to Main Stage</span></a></li>
+        <li>{{More Than a Feeling}} by {{Boston}} <a href=""><span>📣 Send to Main Stage</span></a></li>
+
+      </ul>
+    </div>
+  </div>
 </main>
 
 </body>

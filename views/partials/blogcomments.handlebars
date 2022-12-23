@@ -1,0 +1,10 @@
+{{#each comments as |comment|}}
+    <section>
+      <div>
+        {{comment.text}}
+      </div>
+      <footer>
+        {{comment.Username}} at {{comment.timestamp}}
+      </footer>
+    </section>
+{{/each}}
