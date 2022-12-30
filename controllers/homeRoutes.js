@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
     }
   });
   
-  router.get('/post/:id', async (req, res) => {
+  router.get('/blogpost/:id', async (req, res) => {
     try {
       const postData = await Post.findByPk(req.params.id, {
         include: [
@@ -55,7 +55,7 @@ router.get('/', async (req, res) => {
   });
   
   
-  router.get('/post/:id', async (req, res) => {
+  router.get('/blogpost/:id', async (req, res) => {
     try {
       const commentData = await Comment.findAll(req.params.id, {
         include: [
@@ -68,7 +68,7 @@ router.get('/', async (req, res) => {
   
       const comment = commentData.get({ plain: true });
   
-      res.render('post', {
+      res.render('blogpost', {
         ...comment,
         logged_in: req.session.logged_in
       });
@@ -78,7 +78,7 @@ router.get('/', async (req, res) => {
   });
   
   // Update Route
-  router.get('/post/update/:id', async (req, res) => {
+  router.get('/blogpost/update/:id', async (req, res) => {
     try {
       const postData = await Post.findByPk(req.params.id, {
         include: [
@@ -105,7 +105,7 @@ router.get('/', async (req, res) => {
   });
   
   // Use withAuth middleware to prevent access to route
-  router.get('/profile', withAuth, async (req, res) => {
+  router.get('/backstage', withAuth, async (req, res) => {
     try {
       // Find the logged in user based on the session ID
       const userData = await User.findByPk(req.session.user_id, {
@@ -115,7 +115,7 @@ router.get('/', async (req, res) => {
   
       const user = userData.get({ plain: true });
   
-      res.render('profile', {
+      res.render('backstage', {
         ...user,
         logged_in: true
       });
@@ -127,7 +127,7 @@ router.get('/', async (req, res) => {
   router.get('/login', (req, res) => {
     // If the user is already logged in, redirect the request to another route
     if (req.session.logged_in) {
-      res.redirect('/profile');
+      res.redirect('/backstage');
       return;
     }
   
