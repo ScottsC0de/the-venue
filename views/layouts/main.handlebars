@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Share+Tech+Mono&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="./public/css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -21,7 +21,7 @@
     </div>
     <div id="heroSub">Argue with your friends and complete strangers about the music you love</div>
   </div>
-    <nav>
+  <nav>
     <a href="/">Main Stage</a>
     <!-- If the user is logged in, show a logout button -->
     {{#if logged_in}}
@@ -37,8 +37,8 @@
     {{{body}}}
 
 
-</main>
- <!-- If the user is logged in, load the JS script for when they logout -->
+  </main>
+  <!-- If the user is logged in, load the JS script for when they logout -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
