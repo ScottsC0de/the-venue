@@ -15,7 +15,7 @@
         <div class="column">
           <form action="" id="artist-section">
               <label for="">Enter Artist Here:</label><br>
-              <p>They're top tracks should come up...</p>
+              <p>They're top tracks ...</p>
               <input id="search-artist" type="text" placeholder="The Beatles"><br>
               <button id="artist-btn">Get Top Tracks</button><br>
               <div id="artist-search-results">
@@ -72,12 +72,17 @@
 
 
 
-
+{{#each songlist.name as |song|}}
 <div class="row card">
   <img src="https://i.scdn.co/image/ab67616d0000b27390ef9760e57fafd8f966d17a" style="height:100px; width: 100px" />
-  <p>song.title by song.artist, song.date</p>
+  <p>{{song}} by tracks[0].album.artists[0].name, songlist.date</p>
   <button data-id="song.id">📣 Send to Main Stage</button>
 </div>
+{{/each}}
+
+
+
+
 <div class="row card">
   <img src="https://i.scdn.co/image/ab67616d0000b27390ef9760e57fafd8f966d17a" style="height:100px; width: 100px" />
   <p> Artist: 1976</p>
@@ -103,3 +108,4 @@
   </div>
 </div>
 <script src="./js/profile.js"></script>
+<script src="./js/getsongs.js"></script>

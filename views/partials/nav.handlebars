@@ -2,7 +2,7 @@
     {{!-- <a href="/">Main Stage</a> --}}
     <!-- If the user is logged in, show a logout button -->
     {{#if logged_in}}
-    <button id="logout" >Logout</button>
+    <button id="logout-btn" >Logout</button>
     {{else}}
     <!-- Otherwise, show a link to login -->
     <a href="/login">Login</a>
@@ -10,4 +10,7 @@
     {{!-- {{#unless (document.location === '/backstage') }} --}}
     <a href="/backstage">Back Stage</a>
     {{!-- {{/unless}} --}}
+      {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
   </nav>

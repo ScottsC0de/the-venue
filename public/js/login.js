@@ -17,7 +17,7 @@ const loginFormHandler = async (event) => {
         // If successful, redirect the browser to the profile page
         document.location.replace('/backstage');
       } else {
-        alert(`${response.status}  ${response.statusText}`);
+        alert(response.statusText);
       }
     }
   };

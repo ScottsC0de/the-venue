@@ -551,11 +551,12 @@ body {
   background-size: cover;
   background-position: center;
   height: 20rem;
-  max-width: 100%;
+  width: 100%;
 }
 
 #hero {
   background-image: url("../assets/crowd.jpg");
+  text-decoration: none;
 }
 
 #groupieHero {
