@@ -1,4 +1,12 @@
 @charset "UTF-8";
+.d-block {
+  display: block;
+}
+
+.d-none {
+  display: none;
+}
+
 :root {
   --active-brightness: 0.85;
   --border-radius: 5px;
