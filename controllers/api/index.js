@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const axios = require('axios');
-// const userRoutes = require('./userRoutes');
+const userRoutes = require('./userRoutes');
 // const playlistRoutes = require('./playlistRoutes');
 // const commentRoutes = require('./commentRoutes');
 
@@ -32,7 +32,7 @@ router.get('/token', async (req, res) => {
     res.json({ token })
 });
 
-// router.use('/users', userRoutes);
+router.use('/users', userRoutes);
 // router.use('/posts', postRoutes);
 // router.use('/comments', commentRoutes);
 // router.use('/playlist', playlistRoutes);
