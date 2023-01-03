@@ -1,3 +1,4 @@
+@use 'abstracts' as * ;
 /* MVP.css v1.12 - https://github.com/andybrewer/mvp */
 
 :root {
@@ -30,7 +31,7 @@
       --color-accent: #0097fc4f;
       --color-bg: #333;
       --color-bg-secondary: #555;
-      --color-link: #0097fc;
+      --color-link: $color-link;
       --color-secondary: #e20de9;
       --color-secondary-accent: #e20de94f;
       --color-shadow: #bbbbbb20;
@@ -50,7 +51,7 @@ article aside {
 body {
   background: var(--color-bg);
   color: var(--color-text);
-  font-family: var(--font-family);
+  font-family: $font-family;
   line-height: var(--line-height);
   margin: 0;
   overflow-x: hidden;
@@ -294,12 +295,12 @@ input[type="submit"] {
   font-weight: bold;
   line-height: var(--line-height);
   margin: 0.5rem 0;
-  padding: 1rem;
+  padding: 1rem 2rem;
 }
 
 button,
 input[type="submit"] {
-  font-family: var(--font-family);
+  font-family: $font-family;
 }
 
 button:active,
@@ -317,8 +318,8 @@ a b,
 a strong,
 button,
 input[type="submit"] {
-  background-color: var(--color-link);
-  border: 2px solid var(--color-link);
+  background-color: $color-link;
+  border: 2px solid $color-link;
   color: var(--color-bg);
 }
 

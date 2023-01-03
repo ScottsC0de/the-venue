@@ -1,0 +1,13 @@
+  <nav>
+    {{!-- <a href="/">Main Stage</a> --}}
+    <!-- If the user is logged in, show a logout button -->
+    {{#if logged_in}}
+    <button id="logout" >Logout</button>
+    {{else}}
+    <!-- Otherwise, show a link to login -->
+    <a href="/login">Login</a>
+    {{/if}}
+    {{!-- {{#unless (document.location === '/backstage') }} --}}
+    <a href="/backstage">Back Stage</a>
+    {{!-- {{/unless}} --}}
+  </nav>
