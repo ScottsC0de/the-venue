@@ -13,7 +13,7 @@ const loginFormHandler = async (event) => {
         headers: { 'Content-Type': 'application/json' },
       });
   
-      if (response.ok) {
+      if (response.status===200) {
         // If successful, redirect the browser to the profile page
         document.location.replace('/backstage');
       } else {
@@ -30,6 +30,9 @@ const loginFormHandler = async (event) => {
     const password = document.querySelector('#password-signup').value.trim();
   // if we add name back in then replace line 32 with --> if (name && email && password)
     if (name && email && password) {
+      if (password.length < 8) {
+        alert('Password must be at least 8 characters')
+      }
       const response = await fetch('/api/users', {
         method: 'POST',
          // if we add name back in then replace line 32 with --> body: JSON.stringify({ name, email, password }),
@@ -38,11 +41,13 @@ const loginFormHandler = async (event) => {
         headers: { 'Content-Type': 'application/json' },
       });
   
-      if (response.ok) {
+      if (response.status===200) {
         document.location.replace('/backstage');
       } else {
         alert(response.statusText);
       }
+    } else {
+      alert('Please enter all fields correctly.')
     }
   };
   
