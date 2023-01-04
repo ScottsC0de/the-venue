@@ -7,6 +7,18 @@
   display: none;
 }
 
+.no-wrap {
+  flex-wrap: nowrap;
+}
+
+.space-evenly {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
 :root {
   --active-brightness: 0.85;
   --border-radius: 5px;

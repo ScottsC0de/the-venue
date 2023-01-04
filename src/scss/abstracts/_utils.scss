@@ -5,3 +5,12 @@
 .d-none {
   display: none;
 }
+.no-wrap {
+  flex-wrap: nowrap;
+}
+.space-evenly {
+  justify-content: space-between;
+}
+.align-center {
+  align-items: center;
+}
