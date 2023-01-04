@@ -1,7 +1,7 @@
 <section id="login">
   <h2>This is the login section</h2>
   <div class="row">
-    <img src="./public/assets/bouncer.jpg" alt="bouncer">
+    <img src="/assets/bouncer.jpg" alt="bouncer">
     <div>
       <h2>Security Checkpoint</h2>
       <p>No cover charge, but you need to be on the guest list to enter</p>
@@ -16,6 +16,8 @@
     </form>
     <form class="form signup-form" action="./controllers/api/users">
       <h3>Signup</h3>
+      <label for="signup_name">First Name</label>
+      <input type="name" name="login_name" id="name-signup">
       <label for="signup_email">Email</label>
       <input type="email" name="login_email" id="email-signup">
       <label for="signup_pwd">Password</label>
