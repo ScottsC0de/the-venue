@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>The Venue Record Store Branch</title>
 </head>
 
 <body>
     <h1>Record Store</h1>
-    <p>Search an artist, song name, or Spotify playlist</p>
+    <p>Search an artist's top tracks, song name, or Spotify playlist</p>
 
     <select name="choose-search" id="choose-search">
         <option value="artist-option">Artist</option>
@@ -20,15 +20,18 @@
 
     <section id="artist-section">
         <form action="">
-            <label for="">Enter Artist Here:</label><br>
-            <p>They're top tracks should come up...</p>
+            <label for="">Enter Artist Name Here:</label><br>
+            <p>Their top tracks should come up...</p>
             <input id="search-artist" type="text" placeholder="The Beatles"><br>
             <button id="artist-btn">Get Top Tracks</button><br>
             <div id="artist-search-results">
                 <h3>Track List:</h3>
                 <img src="" alt="Image of the searched artist" id="artist-img" width="300" height="200">
                 <h3>Top Tracks:</h3>
-                <div id="track-list"></div>
+                <div id="track-list">
+                    <iframe id="artist-iframe" width="650" height="380" frameborder="0"
+                        allowtransparency="true"></iframe>
+                </div>
                 <button class="clear-btn" onclick="clearResults()">Clear</button><br>
             </div>
         </form>
@@ -42,12 +45,7 @@
             <button id="song-btn">Get Song</button><br>
             <div id="track-list">
                 <h3>Track List:</h3>
-                <img src="" alt="Searched song album cover" id="song-img" width="300" height="200">
-                <p>Name: </p>
-                <p>Artist: </p>
-                <p>Album: </p>
-                <p>Year: </p>
-                <p>Record Label: </p>
+                <iframe id="song-iframe" width="650" height="380" frameborder="0" allowtransparency="true"></iframe>
                 <button class="clear-btn" onclick="clearResults()">Clear</button><br>
             </div>
         </form>
@@ -61,15 +59,22 @@
             <button id="search-playlist-btn">Get Playlist</button><br>
             <div id="playlist-results">
                 <h3>Track List:</h3>
-                <img src="" alt="Playlist cover" id="playlist-img" width="300" height="200">
-                <p>Playlist Name: </p>
-                <p>Creator: </p>
+                <iframe id="playlist-iframe" width="650" height="380" frameborder="0" allowtransparency="true"></iframe>
                 <button class="clear-btn" onclick="clearResults()">Clear</button><br>
             </div>
         </form>
+    </section>
 
-        <h3>Create Your Own Spotify Playlist Here:</h3>
-        <button id="create-playlist-btn"></button>
+    <section id="create-playlist-section">
+        <p>Create Your Own Spotify Playlist Here:</p>
+        <form action="">
+            <label for="">Enter your Spotify username here:</label><br>
+            <p>It should create...</p>
+            <input id="create-playlist-input" type="text" placeholder="Scott5902"><br>
+            <button id="create-playlist-btn">Create!</button>
+            <button class="clear-btn" onclick="clearResults()">Clear</button><br>
+            </div>
+        </form>
     </section>
 
     <script src="public/js/app.js"></script>
