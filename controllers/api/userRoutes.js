@@ -20,11 +20,11 @@ router.post('/', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
-  if (req.session.logged_in) {
-    res.redirect('/backstage');
-    return;
-  }
   try {
+    if (req.session.logged_in) {
+      res.redirect('/');
+      return;
+    }
     const userData = await User.findOne({ where: { email: req.body.email } });
 
     if (!userData) {
@@ -46,10 +46,9 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      // document.location.replace('/backstage')
       
       res.json({ user: userData, message: 'You are now logged in!' });
-      document.location.replace('/backstage');
+      // document.location.replace('/');
     });
 
   } catch (err) {
