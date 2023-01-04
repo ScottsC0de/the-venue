@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><br>
     <title>The Venue Record Store Branch</title>
 </head>
 
@@ -25,14 +25,9 @@
             <input id="search-artist" type="text" placeholder="The Beatles"><br>
             <button id="artist-btn">Get Top Tracks</button><br>
             <div id="artist-search-results">
-                <h3>Track List:</h3>
-                <img src="" alt="Image of the searched artist" id="artist-img" width="300" height="200">
-                <h3>Top Tracks:</h3>
-                <div id="track-list">
-                    <iframe id="artist-iframe" width="650" height="380" frameborder="0"
-                        allowtransparency="true"></iframe>
-                </div>
-                <button class="clear-btn" onclick="clearResults()">Clear</button><br>
+                <iframe id="artist-iframe" width="650" height="380" frameborder="0"
+                    allowtransparency="true"></iframe><br>
+                <button id="share-artist-btn">Share Artist</button><br>
             </div>
         </form>
     </section>
@@ -43,10 +38,9 @@
             <p>It should come up...</p>
             <input id="search-song" type="text" placeholder="Come Together"><br>
             <button id="song-btn">Get Song</button><br>
-            <div id="track-list">
-                <h3>Track List:</h3>
-                <iframe id="song-iframe" width="650" height="380" frameborder="0" allowtransparency="true"></iframe>
-                <button class="clear-btn" onclick="clearResults()">Clear</button><br>
+            <div id="song-search-results">
+                <iframe id="song-iframe" width="650" height="380" frameborder="0" allowtransparency="true"></iframe><br>
+                <button id="share-song-btn">Share Song</button><br>
             </div>
         </form>
     </section>
@@ -57,27 +51,14 @@
             <p>It should come up...</p>
             <input id="search-playlist" type="text" placeholder="70s Dad Rock"><br>
             <button id="search-playlist-btn">Get Playlist</button><br>
-            <div id="playlist-results">
-                <h3>Track List:</h3>
+            <div id="playlist-search-results">
                 <iframe id="playlist-iframe" width="650" height="380" frameborder="0" allowtransparency="true"></iframe>
-                <button class="clear-btn" onclick="clearResults()">Clear</button><br>
+                <button id="share-playlist-btn">Share Playlist</button><br>
             </div>
         </form>
     </section>
 
-    <section id="create-playlist-section">
-        <p>Create Your Own Spotify Playlist Here:</p>
-        <form action="">
-            <label for="">Enter your Spotify username here:</label><br>
-            <p>It should create...</p>
-            <input id="create-playlist-input" type="text" placeholder="Scott5902"><br>
-            <button id="create-playlist-btn">Create!</button>
-            <button class="clear-btn" onclick="clearResults()">Clear</button><br>
-            </div>
-        </form>
-    </section>
-
-    <script src="public/js/app.js"></script>
+    <script src="js/app.js"></script>
 
 </body>
 

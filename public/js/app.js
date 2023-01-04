@@ -16,9 +16,6 @@
 // all other spotify api endpoints
 // convert to jQuery
 
-// Post request, client id and secret passed in body
-// spotify returns a bearer token used to call all their endpoints
-
 // source: https://www.youtube.com/watch?v=0dmS0He_czs
 // source: https://www.youtube.com/watch?v=SbelQW2JaDQ&t=417s
 
@@ -28,9 +25,11 @@
 let token;
 
 window.addEventListener('load', async function (e) {
+
     const result = await fetch('http://localhost:3001/api/token');
     const data = await result.json();
     token = data.token;
+
 });
 
 const _searchArtist = async (artistName) => {
@@ -41,6 +40,7 @@ const _searchArtist = async (artistName) => {
     });
 
     const data = await result.json();
+    console.log(data);
     return data.artists.items[0].id;
 
 };
@@ -101,21 +101,21 @@ var searchArtistSection = document.getElementById('artist-section'); // artist s
 var searchArtistInput = document.getElementById('search-artist'); // artist search input field
 var searchArtistBtn = document.getElementById('artist-btn'); // search artist button
 var artistResultsDiv = document.getElementById('artist-search-results'); // div for artist iframe and buttons
+var shareArtistBtn = document.getElementById('share-artist-btn'); // button to add artist to stage
 
 // search a song
 var searchSongSection = document.getElementById('song-section'); // song search container
 var searchSongInput = document.getElementById('search-song'); // song search input field
 var searchSongBtn = document.getElementById('song-btn'); // search song button
-var trackList = document.getElementById('track-list'); // div for song iframe and buttons
+var trackList = document.getElementById('song-search-results'); // div for song iframe and buttons
+var shareSongBtn = document.getElementById('share-song-btn');// button to add song to stage
 
 // search a playlist
 var searchPlaylistSection = document.getElementById('playlist-section'); // playlist search section
 var searchPlaylistInput = document.getElementById('search-playlist'); // search a playlist input field
 var searchPlaylistBtn = document.getElementById('search-playlist-btn'); // search a playlist button
-var playlistResultsDiv = document.getElementById('playlist-results'); // iframe and button div
-
-// clearResults()
-var clearBtns = document.querySelectorAll('clear-btn'); // clear buttons
+var playlistResultsDiv = document.getElementById('playlist-search-results'); // iframe and button div
+var sharePlaylistBtn = document.getElementById('share-playlist-btn'); // button to add playlist to stage
 
 // iframe tags from html for spotify players
 var artistPlayer = document.getElementById('artist-iframe');
@@ -131,7 +131,6 @@ searchArtistBtn.addEventListener('click', async function (e) {
 
     const artistId = await _searchArtist(searchArtistInput.value);
     const getTheTracks = await _getArtistTopTracks(artistId);
-
     const spotifyArtistPlayer = await artistPlayer.setAttribute('src', `https://open.spotify.com/embed/artist/${artistId}?utm_source=generator`);
 
 });
@@ -155,75 +154,86 @@ searchPlaylistBtn.addEventListener('click', async function (e) {
 
 });
 
-// var createPlaylistSection = document.getElementById('create-playlist-section'); // create playlist search section
-// var createPlaylistInput = document.getElementById('create-playlist-input');
-// var createPlaylistBtn = document.getElementById('create-playlist-btn'); // create playlist
-// var addSongToPlaylist = document.getElementById('add-song'); // add song to playlist
-// var removeFromPlaylist = document.getElementById('remove-song'); // remove song from playlist
+// getting artist name and image from JSON data
+const _shareArtist = async (artistName) => {
 
-// const _createPlaylist = async () => {
+    const result = await fetch(`https://api.spotify.com/v1/search?q=${artistName}&type=artist&limit=1`, {
+        method: 'GET',
+        headers: { 'Authorization': 'Bearer ' + token }
+    });
 
-//     const result = await fetch(`https://api.spotify.com/v1/users/me/playlists`, {
-//         method: 'POST',
-//         headers: { 'Authorization': 'Bearer ' + token },
-//         data: {
-//             "name": "New Playlist",
-//             "description": "New playlist description",
-//             "public": false
-//         }
-//     });
+    const data = await result.json();
+    var artistShareArray = [];
+    var artistNameShare = data.artists.items[0].name;
+    var artistNameIdShare = data.artists.items[0].id;
+    var artistImgShare = data.artists.items[0].images[0].url;
+    artistShareArray.push(artistNameShare, artistNameIdShare, artistImgShare);
+    console.log(artistShareArray);
 
-//     const data = await result.json();
-//     console.log(data);
-//     return data;
-// };
+};
 
-// const _addToPlaylist = async (playlist_id) => {
+// getting song name/id, artist name/id, album name/id from JSON data
+const _shareSong = async (songName) => {
 
-//     const result = await fetch(`https://api.spotify.com/v1/playlists/${playlist_id}/tracks`, {
-//         method: 'POST',
-//         headers: { 'Authorization': 'Bearer ' + token },
-//         data: {
-//             "uris": [
-//                 "string"
-//             ],
-//             "position": 0
-//         }
-//     });
+    const result = await fetch(`https://api.spotify.com/v1/search?q=${songName}&type=track&limit=1`, {
+        method: 'GET',
+        headers: { 'Authorization': 'Bearer ' + token }
+    });
 
-//     const data = await result.json();
-//     return data;
-// };
+    const data = await result.json();
+    var songShareArray = [];
+    var songNameShare = data.tracks.items[0].name;
+    var songNameIdShare = data.tracks.items[0].id;
+    var songArtistNameShare = data.tracks.items[0].artists[0].name;
+    var songArtistNameIdShare = data.tracks.items[0].artists[0].id;
+    var songAlbumShare = data.tracks.items[0].album.name;
+    var songAlbumIdShare = data.tracks.items[0].album.id;
+    songShareArray.push(songNameShare, songNameIdShare, songArtistNameShare, songArtistNameIdShare, songAlbumShare, songAlbumIdShare);
+    console.log(songShareArray);
 
-// const _removeFromPlaylist = async (playlist_id) => {
+};
 
-//     const result = await fetch(`https://api.spotify.com/v1/playlists/${playlist_id}/tracks`, {
-//         method: 'DELETE',
-//         headers: { 'Authorization': 'Bearer ' + token }
-//     });
+// getting playlist name/id, owner, image from JSON data
+const _sharePlaylist = async (playlistName) => {
 
-//     const data = await result.json();
-//     return data;
-// };
+    const result = await fetch(`https://api.spotify.com/v1/search?q=${playlistName}&type=playlist&limit=15`, {
+        method: 'GET',
+        headers: { 'Authorization': 'Bearer ' + token }
+    });
 
-// // create a new playlist button
-// createPlaylistBtn.addEventListener('click', async function (e) {
-//     e.preventDefault();
+    const data = await result.json();
+    var playlistShareArray = [];
+    var playlistNameShare = data.playlists.items[0].name;
+    var playlistNameIdShare = data.playlists.items[0].id;
+    var playlistOwner = data.playlists.items[0].owner.display_name;
+    var playlistOwnerId = data.playlists.items[0].owner.id;
+    var playlistImgShare = data.playlists.items[0].images[0].url;
+    playlistShareArray.push(playlistNameShare, playlistNameIdShare, playlistOwner, playlistOwnerId, playlistImgShare);
+    console.log(playlistShareArray);
 
-//     const newPlaylist = await _createPlaylist(createPlaylistInput.value);
+};
 
-// });
+// share artist button
+shareArtistBtn.addEventListener('click', async function (e) {
+    e.preventDefault();
 
-// // add this song to your playlist button
-// addSongToPlaylist.addEventListener('click', async function (e) {
-//     e.preventDefault();
+    const artistShared = await _shareArtist(searchArtistInput.value);
 
-//     const songAdded = await _addToPlaylist(songId);
-// });
+});
 
-// // remove this song from your playlist button
-// removeFromPlaylist.addEventListener('click', async function (e) {
-//     e.preventDefault();
+// share song button
+shareSongBtn.addEventListener('click', async function (e) {
+    e.preventDefault();
 
-//     _removeFromPlaylist();
-// });
+    const songSearched = await _searchSong(searchSongInput.value);
+    const songShared = await _shareSong(searchSongInput.value);
+
+});
+
+// share playlist button
+sharePlaylistBtn.addEventListener('click', async function (e) {
+    e.preventDefault();
+
+    const playlistShared = await _sharePlaylist(searchPlaylistInput.value);
+
+});
