@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Post, User, Comment, Playlist } = require('../models');
 const withAuth = require('../utils/auth');
+// const tracks = require('../public/js/modules/example-songs');
 
 router.get('/spotify', async (req, res) => {
     res.render('spotifyapi', {})
@@ -122,6 +123,7 @@ router.get('/', async (req, res) => {
   
       res.render('backstage', {
         ...user,
+        // tracks,
         logged_in: true
       });
     } catch (err) {

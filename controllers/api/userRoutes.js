@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
       res.status(200).json({ user: userData, message: 'You are now logged in!' });
     });
   } catch (err) {
-    console.log(err)
+    console.log(err);
     res.status(400).json(err);
   }
 });
@@ -49,7 +49,7 @@ router.post('/login', async (req, res) => {
       // document.location.replace('/backstage')
       
       res.json({ user: userData, message: 'You are now logged in!' });
-      // document.location.replace('/backstage');
+      document.location.replace('/backstage');
     });
 
   } catch (err) {

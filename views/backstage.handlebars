@@ -73,10 +73,12 @@
 
 
 
-{{#each songlist.name as |song|}}
+{{#each tracks as |song|}}
 <div class="row card">
   <img src="https://i.scdn.co/image/ab67616d0000b27390ef9760e57fafd8f966d17a" style="height:100px; width: 100px" />
-  <p>{{song}} by tracks[0].album.artists[0].name, songlist.date</p>
+  <a href="/api/posts/">
+    <p>{{song.name}} by tracks[0].album.artists[0].name, songlist.date</p>
+  </a>
   <button data-id="song.id">📣 Send to Main Stage</button>
 </div>
 {{/each}}

@@ -7,7 +7,7 @@
     <!-- Otherwise, show a link to login -->
     <a href="/login">Login</a>
     {{/if}}
-    {{!-- {{#unless (document.location === '/backstage') }} --}}
+    {{!-- {{#unless (req.path === '/backstage') }} --}}
     <a href="/backstage">Back Stage</a>
     {{!-- {{/unless}} --}}
       {{#if logged_in}}
