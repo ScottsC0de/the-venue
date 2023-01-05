@@ -15,7 +15,7 @@ function toggleElement(option) {
   searchByPlaylist.className = 'd-none';
   switch (option){
     case 'artist-option':
-      searchByArtist.className = 'd-block';
+      searchByArtist.className = 'd-block w-100';
       break;
     case 'song-option':
       searchBySong.className = 'd-block';

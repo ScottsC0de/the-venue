@@ -99,9 +99,12 @@ const _getArtistTopTracks = async (id) => {
 // search an artist
 var searchArtistSection = document.getElementById('artist-section'); // artist section container
 var searchArtistInput = document.getElementById('search-artist'); // artist search input field
+var searchInput = document.getElementById('search-field'); // artist search input field
 var searchArtistBtn = document.getElementById('artist-btn'); // search artist button
+var searchBtn = document.getElementById('search-btn'); // search  button
 var artistResultsDiv = document.getElementById('artist-search-results'); // div for artist iframe and buttons
 var shareArtistBtn = document.getElementById('share-artist-btn'); // button to add artist to stage
+var shareBtn = document.getElementById('share-btn'); // button to add artist to stage
 
 // search a song
 var searchSongSection = document.getElementById('song-section'); // song search container
@@ -125,16 +128,25 @@ var playlistPlayer = document.getElementById('playlist-iframe');
 // one spotify api token makes all API calls
 var apiToken = document.getElementById('api-token');
 
-// search artist button
-searchArtistBtn.addEventListener('click', async function (e) {
-    e.preventDefault();
+// // search artist button
+// searchArtistBtn.addEventListener('click', async function (e) {
+//     e.preventDefault();
 
-    const artistId = await _searchArtist(searchArtistInput.value);
-    const getTheTracks = await _getArtistTopTracks(artistId);
-    const spotifyArtistPlayer = await artistPlayer.setAttribute('src', `https://open.spotify.com/embed/artist/${artistId}?utm_source=generator`);
+//     const artistId = await _searchArtist(searchArtistInput.value);
+//     const getTheTracks = await _getArtistTopTracks(artistId);
+//     const spotifyArtistPlayer = await artistPlayer.setAttribute('src', `https://open.spotify.com/embed/artist/${artistId}?utm_source=generator`);
+
+// });
+
+// // search general button
+searchBtn.addEventListener('click', async function (e) {
+  e.preventDefault();
+
+  const artistId = await _searchArtist(searchInput.value);
+  const getTheTracks = await _getArtistTopTracks(artistId);
+  const spotifyArtistPlayer = await artistPlayer.setAttribute('src', `https://open.spotify.com/embed/artist/${artistId}?utm_source=generator`);
 
 });
-
 // search song button
 searchSongBtn.addEventListener('click', async function (e) {
     e.preventDefault();
@@ -214,13 +226,13 @@ const _sharePlaylist = async (playlistName) => {
 
 };
 
-// share artist button
-shareArtistBtn.addEventListener('click', async function (e) {
-    e.preventDefault();
+// // share artist button
+// shareArtistBtn.addEventListener('click', async function (e) {
+//     e.preventDefault();
 
-    const artistShared = await _shareArtist(searchArtistInput.value);
+//     const artistShared = await _shareArtist(searchArtistInput.value);
 
-});
+// });
 
 // share song button
 shareSongBtn.addEventListener('click', async function (e) {
