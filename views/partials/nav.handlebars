@@ -1,5 +1,5 @@
   <nav>
-    {{!-- <a href="/">Main Stage</a> --}}
+   <a href="/">Main Stage</a> 
     <!-- If the user is logged in, show a logout button -->
     {{#if logged_in}}
     <button id="logout-btn" >Logout</button>
@@ -8,7 +8,7 @@
     <a href="/login">Login</a>
     {{/if}}
     {{!-- {{#unless (req.path === '/backstage') }} --}}
-    <a href="/backstage">Back Stage</a>
+    <a href="/spotify">Back Stage</a>
     {{!-- {{/unless}} --}}
       {{#if logged_in}}
   <script src="/js/logout.js"></script>

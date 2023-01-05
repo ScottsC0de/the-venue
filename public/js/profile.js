@@ -14,7 +14,7 @@ const newFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/backstage');
+        document.location.replace('/');
       } else {
         alert('Failed to create post');
       }
@@ -30,7 +30,7 @@ const newFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/backstage');
+        document.location.replace('/spotify');
       } else {
         alert('Failed to delete post');
       }

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, User, Comment, Playlist } = require('../models');
+const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 // const tracks = require('../public/js/modules/example-songs');
 
@@ -33,6 +33,8 @@ router.get('/', async (req, res) => {
   }
 });
 
+//Get the individual blogpost for blogpost handlebars
+
 router.get('/blogpost/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -59,7 +61,7 @@ router.get('/blogpost/:id', async (req, res) => {
   }
 });
 
-
+//Get the individual blogpost comment for blogpost handlebars or change to blogcomment handlebars
 router.get('/blogpost/:id', async (req, res) => {
   try {
     const commentData = await Comment.findAll(req.params.id, {
@@ -110,7 +112,7 @@ router.get('/blogpost/update/:id', async (req, res) => {
   });
   
   // Use withAuth middleware to prevent access to route
-  router.get('/backstage', withAuth, async (req, res) => {
+  router.get('/spotifyapi', withAuth, async (req, res) => {
     try {
       // Find the logged in user based on the session ID
       const userData = await User.findByPk(req.session.user_id, {
@@ -120,9 +122,8 @@ router.get('/blogpost/update/:id', async (req, res) => {
   
       const user = userData.get({ plain: true });
   
-      res.render('backstage', {
+      res.render('spotifyapi', {
         ...user,
-        // tracks,
         logged_in: true
       });
     } catch (err) {
@@ -133,7 +134,7 @@ router.get('/blogpost/update/:id', async (req, res) => {
   router.get('/login', (req, res) => {
     // If the user is already logged in, redirect the request to another route
     if (req.session.logged_in) {
-      res.redirect('/backstage');
+      res.redirect('/spotifyapi');
       return;
     }
   
