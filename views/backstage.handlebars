@@ -1,115 +1,99 @@
 {{> nav}}
 <div id="backstage">
   <h3>Backstage with {{name}}</h3>
-  
+
   <div id="groupieHero"></div>
 
-    <h4>Search an artist, song name, or Spotify playlist</h4>
+  <h4>Search an artist, song name, or Spotify playlist</h4>
 
-    <select name="choose-search" id="choose-search">
-        <option >Search by...</option>
-        <option value="artist-option">Artist</option>
-        <option value="song-option">Song</option>
-        <option value="playlist-option">Playlist</option>
-    </select>
+  <select name="choose-search" id="choose-search">
+    <option>Search by...</option>
+    <option value="artist-option">Artist</option>
+    <option value="song-option">Song</option>
+    <option value="playlist-option">Playlist</option>
+  </select>
 
-        <div class="column">
-          <form action="" id="artist-section" class="d-none">
-              <label for="">Enter Artist Here:</label><br>
-              <p>They're top tracks ...</p>
-              <input id="search-artist" type="text" placeholder="The Beatles"><br>
-              <button id="artist-btn">Get Top Tracks</button><br>
-              <div id="artist-search-results">
-                  <h3>Track List:</h3>
-                  <img src="" alt="Image of the searched artist" id="artist-img" width="300" height="200">
-                  <h3>Top Tracks:</h3>
-                  <div id="track-list"></div>
-                  <button class="clear-btn" onclick="clearResults()">Clear</button><br>
-              </div>
-          </form>
-          <form action="" id="song-section" class="d-none">
-              <label for="">Enter Song Here:</label><br>
-              <p>It should come up...</p>
-              <input id="search-song" type="text" placeholder="Come Together"><br>
-              <button id="song-btn">Get Song</button><br>
-              <div id="track-list">
-                  <h3>Track List:</h3>
-                  <img src="" alt="Searched song album cover" id="song-img" width="300" height="200">
-                  <p>Name: </p>
-                  <p>Artist: </p>
-                  <p>Album: </p>
-                  <p>Year: </p>
-                  <p>Record Label: </p>
-                  <button class="clear-btn" onclick="clearResults()">Clear</button><br>
-              </div>
-          </form>
-          <form action="" id="playlist-section" class="d-none">
-              <label for="">Enter Spotify Playlist Here:</label><br>
-              <p>It should come up...</p>
-              <input id="search-playlist" type="text" placeholder="70s Dad Rock"><br>
-              <button id="search-playlist-btn">Get Playlist</button><br>
-              <div id="playlist-results">
-                  <h3>Track List:</h3>
-                  <img src="" alt="Playlist cover" id="playlist-img" width="300" height="200">
-                  <p>Playlist Name: </p>
-                  <p>Creator: </p>
-                  <button class="clear-btn" onclick="clearResults()">Clear</button><br>
-              </div>
-          </form>
-        </div>
+  <div class="column">
+    <form action="" id="artist-section" class="d-none">
+      <label for="">Enter Artist Here:</label><br>
+      <p>They're top tracks ...</p>
+      <input id="search-artist" type="text" placeholder="The Beatles"><br>
+      <button id="artist-btn">Get Top Tracks</button><br>
+      <div id="spotify-search-results">
+        <h3>Track List:</h3>
+        <img src="" alt="Image of the searched artist" id="artist-img" width="300" height="200">
+        <h3>Top Tracks:</h3>
+        <div id="track-list"></div>
+        <button class="clear-btn" onclick="clearResults()">Clear</button><br>
+      </div>
+    </form>
+    <form action="" id="song-section" class="d-none">
+      <label for="">Enter Song Here:</label><br>
+      <p>It should come up...</p>
+      <input id="search-song" type="text" placeholder="Come Together"><br>
+      <button id="song-btn">Get Song</button><br>
+      <div id="track-list">
+        <h3>Track List:</h3>
+        <img src="" alt="Searched song album cover" id="song-img" width="300" height="200">
+        <p>Name: </p>
+        <p>Artist: </p>
+        <p>Album: </p>
+        <p>Year: </p>
+        <p>Record Label: </p>
+        <button class="clear-btn" onclick="clearResults()">Clear</button><br>
+      </div>
+    </form>
+    <form action="" id="playlist-section" class="d-none">
+      <label for="">Enter Spotify Playlist Here:</label><br>
+      <p>It should come up...</p>
+      <input id="search-playlist" type="text" placeholder="70s Dad Rock"><br>
+      <button id="search-playlist-btn">Get Playlist</button><br>
+      <div id="playlist-results">
+        <h3>Track List:</h3>
+        <img src="" alt="Playlist cover" id="playlist-img" width="300" height="200">
+        <p>Playlist Name: </p>
+        <p>Creator: </p>
+        <button class="clear-btn" onclick="clearResults()">Clear</button><br>
+      </div>
+    </form>
+  </div>
 
-        {{!-- <h3>Create Your Own Spotify Playlist Here:</h3> --}}
-        {{!-- <button id="create-playlist-btn"></button> --}}
+  {{!-- <h3>Create Your Own Spotify Playlist Here:</h3> --}}
+  {{!-- <button id="create-playlist-btn"></button> --}}
 
 
   <div>
     {{> blogpost_list}}
-    {{!-- <h4>{{{Playlist Name}}}</h4>
-    <ul id="playlist">
-      {{> playlist_song}} --}}
-
-    {{!-- </ul> --}}
-    {{!-- <div class="pic-container"> --}}
 
 
 
-{{#each tracks as |song|}}
-<div class="row card">
-  <img src="https://i.scdn.co/image/ab67616d0000b27390ef9760e57fafd8f966d17a" style="height:100px; width: 100px" />
-  <a href="/api/posts/">
-    <p>{{song.name}} by tracks[0].album.artists[0].name, songlist.date</p>
-  </a>
-  <button data-id="song.id">📣 Send to Main Stage</button>
-</div>
-{{/each}}
+      <div class="row card">
+        <img src="https://i.scdn.co/image/ab67616d0000b27390ef9760e57fafd8f966d17a"
+          style="height:100px; width: 100px" />
+        <p> Artist: 1976</p>
+        <p>Song Title</p>
+      </div>
 
+      <div class="row card">
+        <img src="https://i.scdn.co/image/ab67616d0000b27390ef9760e57fafd8f966d17a"
+          style="height:100px; width: 100px" />
+        <p> Artist: 1976</p>
+        <p>Song Title</p>
+      </div>
 
-
-
-<div class="row card">
-  <img src="https://i.scdn.co/image/ab67616d0000b27390ef9760e57fafd8f966d17a" style="height:100px; width: 100px" />
-  <p> Artist: 1976</p>
-  <p>Song Title</p>
-</div>
-
-<div class="row card">
-  <img src="https://i.scdn.co/image/ab67616d0000b27390ef9760e57fafd8f966d17a" style="height:100px; width: 100px" />
-  <p> Artist: 1976</p>
-  <p>Song Title</p>
-</div>
-
-<div class="row card">
-  <img src="https://i.scdn.co/image/ab67616d0000b27390ef9760e57fafd8f966d17a" style="height:100px; width: 100px" />
-  <p> Artist: 1976</p>
-  <p>Song Title</p>
-</div>
+      <div class="row card">
+        <img src="https://i.scdn.co/image/ab67616d0000b27390ef9760e57fafd8f966d17a"
+          style="height:100px; width: 100px" />
+        <p> Artist: 1976</p>
+        <p>Song Title</p>
+      </div>
 
 
 
 
 
+    </div>
   </div>
-</div>
-<script src="/js/profile.js" type="text/javascript"></script>
-<script src="/js/getsongs.js" type="text/javascript"></script>
-<script src="/js/searchforms.js" type="text/javascript"></script>
+  <script src="/js/profile.js" type="text/javascript"></script>
+  <script src="/js/getsongs.js" type="text/javascript"></script>
+  <script src="/js/searchforms.js" type="text/javascript"></script>

@@ -41,6 +41,10 @@
   width: 100%;
 }
 
+form + form {
+  margin-top: 1rem;
+}
+
 :root {
   --active-brightness: 0.85;
   --border-radius: 5px;

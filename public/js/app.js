@@ -97,12 +97,14 @@ const _getArtistTopTracks = async (id) => {
 };
 
 // search an artist
-var searchArtistSection = document.getElementById('artist-section'); // artist section container
+var searchArtistSection = document.getElementById('artist-section'); // artist // search general
+// var searchSection = document.getElementById('search-section'); // general search section container
 var searchArtistInput = document.getElementById('search-artist'); // artist search input field
 var searchInput = document.getElementById('search-field'); // artist search input field
 var searchArtistBtn = document.getElementById('artist-btn'); // search artist button
 var searchBtn = document.getElementById('search-btn'); // search  button
 var artistResultsDiv = document.getElementById('artist-search-results'); // div for artist iframe and buttons
+var spotifyResultsDiv = document.getElementById('spotify-search-results'); // div for artist iframe and buttons
 var shareArtistBtn = document.getElementById('share-artist-btn'); // button to add artist to stage
 var shareBtn = document.getElementById('share-btn'); // button to add artist to stage
 
@@ -122,6 +124,7 @@ var sharePlaylistBtn = document.getElementById('share-playlist-btn'); // button 
 
 // iframe tags from html for spotify players
 var artistPlayer = document.getElementById('artist-iframe');
+var allPlayer = document.getElementById('spotify-iframe');
 var songPlayer = document.getElementById('song-iframe');
 var playlistPlayer = document.getElementById('playlist-iframe');
 
@@ -144,8 +147,11 @@ searchBtn.addEventListener('click', async function (e) {
 
   const artistId = await _searchArtist(searchInput.value);
   const getTheTracks = await _getArtistTopTracks(artistId);
-  const spotifyArtistPlayer = await artistPlayer.setAttribute('src', `https://open.spotify.com/embed/artist/${artistId}?utm_source=generator`);
-
+  const postSubject = document.getElementById('post-subject')
+  // const spotifyArtistPlayer = await artistPlayer.setAttribute('src', `https://open.spotify.com/embed/artist/${artistId}?utm_source=generator`);
+  const spotifyArtistPlayer = await allPlayer.setAttribute('src', `https://open.spotify.com/embed/artist/${artistId}?utm_source=generator`);
+  // const artists_name = await _shareArtist.artists.items[0].name;
+  // postSubject.textContent = artists_name;
 });
 // search song button
 searchSongBtn.addEventListener('click', async function (e) {

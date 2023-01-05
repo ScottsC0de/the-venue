@@ -3,6 +3,7 @@ const newFormHandler = async (event) => {
   
     const name = document.querySelector('#post-name').value.trim();
     const description = document.querySelector('#post-desc').value.trim();
+    // const artists_name = document.querySelector('#post-subject').value.trim();
   
     if (name && description) {
       const response = await fetch(`/api/posts`, {
@@ -36,9 +37,9 @@ const newFormHandler = async (event) => {
       }
     }
   };
-  if (document.querySelector('.new-post-form')){
+  if (document.getElementById('#new-post-form')){
     document
-      .querySelector('.new-post-form')
+      .getElementById('#new-post-form')
       .addEventListener('submit', newFormHandler);
   }
   

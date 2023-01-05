@@ -1,8 +1,8 @@
 {{> nav}}
 <div id="backstage">
-  <h3>Backstage with {{name}}</h3>
+  <h1>Backstage with {{name}}</h1>
 
-  <h1>Record Store</h1>
+  <h2>Record Store</h2>
   <p>Search an artist's top tracks, song name, or Spotify playlist</p>
 
   <select name="choose-search" id="choose-search">
@@ -12,23 +12,23 @@
     <option value="playlist-option">Playlist</option>
   </select>
 
-  <section id="artist-section" class="d-none">
+  {{!-- <section id="artist-section" class="d-none"> --}}
+  <section id="search-section" class="d-none">
     <form>
-      {{!-- <label for="search-artist">Enter Artist Name Here:</label>
-      <input id="search-artist" name="search-artist" type="text" placeholder="The Beatles" /> --}}
-      <label for="search-field">Enter Artist Name Here:</label>
-      <input id="search-field" name="search-field" type="text" placeholder="The Beatles" />
-      {{!-- <button id="artist-btn">Search</button> --}}
+      <label for="search-field">What are you looking for?:</label>
+      <input id="search-field" name="search-field" type="text" placeholder="ex: The Beatles, Dr. Feelgood, 70's Dad Rock" />
       <button id="search-btn">Search</button>
       <div id="artist-search-results">
         <div class="iframe-wrapper">
-          <iframe class="responsive-iframe" id="artist-iframe" frameborder="0" allowtransparency="true"></iframe>
+          <iframe class="responsive-iframe" id="spotify-iframe" frameborder="0" allowtransparency="true"></iframe>
         </div>
 
       </div>
     </form>
-    <form>
+    <form action="" id="new-post-form">
       <h3>Create a post</h3>
+        <label for="post-subject">Subject:</label>
+        <input class="form-input" type="text" id="post-subject" name="post-subject">
         <label for="post-name">Title:</label>
         <input class="form-input" type="text" id="post-name" name="post-name" />
         <label for="post-desc">Content:</label>
@@ -92,7 +92,7 @@
 </div>
 
 <div>
-  <h3>Your shared searched Music to the Main Stage:</h3>
+  <h3>Your posts on the Main Stage:</h3>
   <div class="col-md-6">
     {{#if posts.length}}
     <div class="post-list">
@@ -107,6 +107,8 @@
       </div>
       {{/each}}
     </div>
+    {{else}}
+    <p>You have no posts yet.</p>
     {{/if}}
   </div>
 </div>
