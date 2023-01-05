@@ -15,7 +15,7 @@ const loginFormHandler = async (event) => {
   
       if (response.status===200) {
         // If successful, redirect the browser to the profile page
-        document.location.replace('/backstage');
+        document.location.replace('/spotifyapi');
       } else {
         alert(response.statusText);
       }
@@ -42,7 +42,7 @@ const loginFormHandler = async (event) => {
       });
   
       if (response.status===200) {
-        document.location.replace('/backstage');
+        document.location.replace('/spotifyapi');
       } else {
         alert(response.statusText);
       }
