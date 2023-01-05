@@ -164,13 +164,37 @@ const _shareArtist = async (artistName) => {
 
     const data = await result.json();
     var artistShareArray = [];
-    var artistNameShare = data.artists.items[0].name;
+    var artists_name = data.artists.items[0].name;
     var artistNameIdShare = data.artists.items[0].id;
-    var artistImgShare = data.artists.items[0].images[0].url;
-    artistShareArray.push(artistNameShare, artistNameIdShare, artistImgShare);
+    var album_image = data.artists.items[0].images[0].url;
+    artistShareArray.push(artists_name, artistNameIdShare, album_image);
     console.log(artistShareArray);
-
 };
+
+// Creating a function to store Artist Search (Artist Name and Album Image) to Post Table
+const MusicPost = async (event) => {
+    event.preventDefault();
+
+    let artists_name = data.artists.items[0].name;
+    let album_image = data.artists.items[0].images[0].url;
+  
+    if (artists_name && album_image) {
+      const response = await fetch(`/api/posts`, {
+        method: 'POST',
+        body: JSON.stringify({ artists_name, album_image }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (response.ok) {
+        document.location.replace('/');
+      } else {
+        alert('Failed to create post');
+      }
+    }
+  };
+  
 
 // getting song name/id, artist name/id, album name/id from JSON data
 const _shareSong = async (songName) => {
@@ -214,16 +238,23 @@ const _sharePlaylist = async (playlistName) => {
 
 };
 
-// share artist button
-shareArtistBtn.addEventListener('click', async function (e) {
+// When Search song button is clicked it also sends data array to console log
+searchArtistBtn.addEventListener('click', async function (e) {
     e.preventDefault();
 
     const artistShared = await _shareArtist(searchArtistInput.value);
 
 });
 
-// share song button
-shareSongBtn.addEventListener('click', async function (e) {
+if (document.querySelector('.new-post-form')){
+    document
+      .querySelector('.new-post-form')
+      .addEventListener('submit',  MusicPost);
+  };
+  
+
+// When Search song button is clicked it also sends data array to console log
+searchSongBtn.addEventListener('click', async function (e) {
     e.preventDefault();
 
     const songSearched = await _searchSong(searchSongInput.value);
@@ -231,45 +262,10 @@ shareSongBtn.addEventListener('click', async function (e) {
 
 });
 
-// share playlist button
-sharePlaylistBtn.addEventListener('click', async function (e) {
+// When Search song button is clicked it also sends data array to console log
+searchPlaylistBtn.addEventListener('click', async function (e) {
     e.preventDefault();
 
     const playlistShared = await _sharePlaylist(searchPlaylistInput.value);
 
 });
-
-// save the music data when Share Artist button is submitted
-
-
-
-
-// // save the post when Share button is submitted
-// const newFormHandler = async (event) => {
-//     event.preventDefault();
-  
-//     const name = document.querySelector('#post-name').value.trim();
-//     const description = document.querySelector('#post-desc').value.trim();
-  
-//     if (name && description) {
-//       const response = await fetch(`/api/posts`, {
-//         method: 'POST',
-//         body: JSON.stringify({ name, description }),
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//       });
-  
-//       if (response.ok) {
-//         document.location.replace('/mainstage');
-//       } else {
-//         alert('Failed to create post');
-//       }
-//     }
-//   };
-
-//   if (document.querySelector('.new-post-form')){
-//     document
-//       .querySelector('.new-post-form')
-//       .addEventListener('submit', newFormHandler);
-//   }

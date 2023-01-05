@@ -13,10 +13,11 @@ Post.init(
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     description: {
       type: DataTypes.STRING,
+      allowNull: true,
     },
      track_name: {
       type: DataTypes.STRING,
