@@ -142,7 +142,7 @@ searchSongBtn.addEventListener('click', async function (e) {
     const songSearched = await _searchSong(searchSongInput.value);
     const songSearchedId = await _searchSongForId(searchSongInput.value);
     const spotifySongPlayer = await songPlayer.setAttribute('src', `https://open.spotify.com/embed/track/${songSearchedId}?utm_source=generator`);
-
+    
 });
 
 // search playlist button
@@ -188,7 +188,8 @@ const _shareSong = async (songName) => {
     var songArtistNameIdShare = data.tracks.items[0].artists[0].id;
     var songAlbumShare = data.tracks.items[0].album.name;
     var songAlbumIdShare = data.tracks.items[0].album.id;
-    songShareArray.push(songNameShare, songNameIdShare, songArtistNameShare, songArtistNameIdShare, songAlbumShare, songAlbumIdShare);
+    var songImgShare = data.tracks.items[0].album.images[0].url;
+    songShareArray.push(songNameShare, songNameIdShare, songArtistNameShare, songArtistNameIdShare, songAlbumShare, songAlbumIdShare, songImgShare);
     console.log(songShareArray);
 
 };
@@ -237,3 +238,38 @@ sharePlaylistBtn.addEventListener('click', async function (e) {
     const playlistShared = await _sharePlaylist(searchPlaylistInput.value);
 
 });
+
+// save the music data when Share Artist button is submitted
+
+
+
+
+// // save the post when Share button is submitted
+// const newFormHandler = async (event) => {
+//     event.preventDefault();
+  
+//     const name = document.querySelector('#post-name').value.trim();
+//     const description = document.querySelector('#post-desc').value.trim();
+  
+//     if (name && description) {
+//       const response = await fetch(`/api/posts`, {
+//         method: 'POST',
+//         body: JSON.stringify({ name, description }),
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//       });
+  
+//       if (response.ok) {
+//         document.location.replace('/mainstage');
+//       } else {
+//         alert('Failed to create post');
+//       }
+//     }
+//   };
+
+//   if (document.querySelector('.new-post-form')){
+//     document
+//       .querySelector('.new-post-form')
+//       .addEventListener('submit', newFormHandler);
+//   }

@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const axios = require('axios');
 const userRoutes = require('./userRoutes');
-// const playlistRoutes = require('./playlistRoutes');
-// const commentRoutes = require('./commentRoutes');
+const postRoutes = require('./postRoutes');
+const commentRoutes = require('./commentRoutes');
 
 require('dotenv').config();
 const btoa = require('btoa');
@@ -33,9 +33,9 @@ router.get('/token', async (req, res) => {
 });
 
 router.use('/users', userRoutes);
-// router.use('/posts', postRoutes);
-// router.use('/comments', commentRoutes);
-// router.use('/playlist', playlistRoutes);
+router.use('/posts', postRoutes);
+router.use('/comments', commentRoutes);
+
 
 module.exports = router;
 

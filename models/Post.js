@@ -18,6 +18,26 @@ Post.init(
     description: {
       type: DataTypes.STRING,
     },
+     track_name: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    artists_name: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    album_name: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    playlist_name: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    album_image: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,

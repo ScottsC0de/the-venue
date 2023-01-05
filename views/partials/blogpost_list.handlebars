@@ -1,6 +1,6 @@
-{{#each blogsposts as |blogpost|}}
+{{#each posts as |post|}}
 
 
-<tr><td>{{post.song}}</td><td>{{post.artist}}</td><td>{{post.title}}</td><td>{{post.commentCount}}</td></tr>
+<tr><td>{{post.song}}</td><td>{{post.artist}}</td><td>{{post.user.name}}</td><td><a href="/post/{{post.id}}">{{post.name}}</a></td><td>{{post.description}}</td><td>{{post.commentCount}}</td></tr>
 
 {{/each}}

@@ -1,5 +1,4 @@
 const User = require('./User');
-const Playlist = require('./Playlist');
 const Post = require('./Post');
 const Comment = require('./Comment');
 
@@ -10,14 +9,6 @@ User.hasMany(Post, {
 
 Post.belongsTo(User, {
   foreignKey: 'user_id',
-});
-
-User.hasOne(Playlist, {
-    foreignKey: 'user_id',
-});
-
-Playlist.belongsTo(User,{
-    foreignKey: 'user_id',
 });
 
 User.hasMany(Comment, {
@@ -39,4 +30,4 @@ foreignKey: "post_id"
 });
 
 
-module.exports = { User, Playlist, Post, Comment };
+module.exports = { User, Post, Comment };
