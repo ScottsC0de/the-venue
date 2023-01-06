@@ -5,24 +5,28 @@
   <h2>Record Store</h2>
   <p>Search an artist's top tracks, song name, or Spotify playlist</p>
 
+
+  {{!-- <section id="artist-section" class="d-none"> --}}
+  <section id="search-section" class="w-100">
+    <form >
+      <label for="search-field">What are you looking for?:</label>
+      <input id="search-field" name="search-field" type="text" placeholder="ex: The Beatles, Dr. Feelgood, 70's Dad Rock" />
   <select name="choose-search" id="choose-search">
     <option>Search by...</option>
     <option value="artist-option">Artist</option>
     <option value="song-option">Song</option>
     <option value="playlist-option">Playlist</option>
   </select>
+      <div id="search-btn">
+        <button id="artist-btn" class="d-none">Search Artist</button>
+        <button id="song-btn" class="d-none">Search Song</button>
+        <button id="search-playlist-btn" class="d-none">Search Playlists</button>
+      </div>
 
-  {{!-- <section id="artist-section" class="d-none"> --}}
-  <section id="search-section" class="d-none">
-    <form>
-      <label for="search-field">What are you looking for?:</label>
-      <input id="search-field" name="search-field" type="text" placeholder="ex: The Beatles, Dr. Feelgood, 70's Dad Rock" />
-      <button id="search-btn">Search</button>
-      <div id="artist-search-results">
+      <div id="search-results" class="d-none">
         <div class="iframe-wrapper">
           <iframe class="responsive-iframe" id="spotify-iframe" frameborder="0" allowtransparency="true"></iframe>
         </div>
-
       </div>
     </form>
     <form action="" id="new-post-form">
@@ -38,7 +42,7 @@
     </form>
   </section>
 
-  <form action="" id="song-section" class="d-none">
+  {{!-- <form action="" id="song-section" class="d-none">
     <label for="">Enter Song Here:</label><br />
     <p>It should come up...</p>
     <input id="search-song" type="text" placeholder="Come Together" /><br />
@@ -62,9 +66,9 @@
       </form>
 
     </div>
-  </form>
+  </form> --}}
 
-  <form action="" id="playlist-section" class="d-none">
+  {{!-- <form action="" id="playlist-section" class="d-none">
     <label for="">Enter Spotify Playlist Here:</label><br />
     <p>It should come up...</p>
     <input id="search-playlist" type="text" placeholder="70s Dad Rock" /><br />
@@ -88,7 +92,7 @@
       </form>
 
 </div>
-</form>
+</form> --}}
 </div>
 
 <div>
@@ -115,4 +119,4 @@
 
 <script src="./js/app.js"></script>
 <script src="./js/profile.js"></script>
-<script src="./js/searchforms.js" type="text/javascript"></script>
+{{!-- <script src="./js/searchforms.js" type="text/javascript"></script> --}}

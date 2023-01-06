@@ -6,9 +6,7 @@ const searchByPlaylist = document.getElementById('playlist-section');
 
 searchOption.addEventListener('change', (event) => {toggleElement(event.target.value)});
 
-function selectSearch() {
 
-} 
 
 function toggleElement(option) {
   searchSection.className = 'd-none';

@@ -142,7 +142,7 @@ var apiToken = document.getElementById('api-token');
 // });
 
 // // search general button
-searchBtn.addEventListener('click', async function (e) {
+searchArtistBtn.addEventListener('click', async function (e) {
   e.preventDefault();
 
   const artistId = await _searchArtist(searchInput.value);
@@ -150,6 +150,7 @@ searchBtn.addEventListener('click', async function (e) {
   const postSubject = document.getElementById('post-subject')
   // const spotifyArtistPlayer = await artistPlayer.setAttribute('src', `https://open.spotify.com/embed/artist/${artistId}?utm_source=generator`);
   const spotifyArtistPlayer = await allPlayer.setAttribute('src', `https://open.spotify.com/embed/artist/${artistId}?utm_source=generator`);
+  searchResults.className = 'd-block';
   // const artists_name = await _shareArtist.artists.items[0].name;
   // postSubject.textContent = artists_name;
 });
@@ -157,9 +158,10 @@ searchBtn.addEventListener('click', async function (e) {
 searchSongBtn.addEventListener('click', async function (e) {
     e.preventDefault();
 
-    const songSearched = await _searchSong(searchSongInput.value);
-    const songSearchedId = await _searchSongForId(searchSongInput.value);
-    const spotifySongPlayer = await songPlayer.setAttribute('src', `https://open.spotify.com/embed/track/${songSearchedId}?utm_source=generator`);
+    // const songSearched = await _searchSong(searchSongInput.value);
+    const songSearched = await _searchSong(searchInput.value);
+    const songSearchedId = await _searchSongForId(searchInput.value);
+    const spotifySongPlayer = await allPlayer.setAttribute('src', `https://open.spotify.com/embed/track/${songSearchedId}?utm_source=generator`);
     
 });
 
@@ -167,8 +169,9 @@ searchSongBtn.addEventListener('click', async function (e) {
 searchPlaylistBtn.addEventListener('click', async function (e) {
     e.preventDefault();
 
-    const playlistSearched = await _searchPlaylist(searchPlaylistInput.value);
-    const spotifyPlaylistPlayer = await playlistPlayer.setAttribute('src', `https://open.spotify.com/embed/user/spotify/playlist/${playlistSearched}`);
+    // const playlistSearched = await _searchPlaylist(searchPlaylistInput.value);
+    const playlistSearched = await _searchPlaylist(searchInput.value);
+    const spotifyPlaylistPlayer = await allPlayer.setAttribute('src', `https://open.spotify.com/embed/user/spotify/playlist/${playlistSearched}`);
 
 });
 
@@ -241,21 +244,22 @@ const _sharePlaylist = async (playlistName) => {
 // });
 
 // share song button
-shareSongBtn.addEventListener('click', async function (e) {
+if (shareSongBtn) {shareSongBtn.addEventListener('click', async function (e) {
     e.preventDefault();
 
     const songSearched = await _searchSong(searchSongInput.value);
     const songShared = await _shareSong(searchSongInput.value);
 
 });
+}
 
 // share playlist button
-sharePlaylistBtn.addEventListener('click', async function (e) {
+if (sharePlaylistBtn) {sharePlaylistBtn.addEventListener('click', async function (e) {
     e.preventDefault();
 
     const playlistShared = await _sharePlaylist(searchPlaylistInput.value);
 
-});
+});}
 
 // save the music data when Share Artist button is submitted
 
@@ -291,3 +295,34 @@ sharePlaylistBtn.addEventListener('click', async function (e) {
 //       .querySelector('.new-post-form')
 //       .addEventListener('submit', newFormHandler);
 //   }
+const searchOption = document.getElementById('choose-search');
+const searchSection = document.getElementById('search-section');
+// const searchByArtist = document.getElementById('artist-section');
+const searchBySong = document.getElementById('song-section');
+const searchByPlaylist = document.getElementById('playlist-section');
+const searchResults = document.getElementById('search-results');
+
+searchOption.addEventListener('change', (event) => {toggleElement(event.target.value)});
+
+
+function toggleElement(option) {
+  searchArtistBtn.className = 'd-none';
+  // searchByArtist.className = 'd-none';
+  searchSongBtn.className = 'd-none';
+  searchPlaylistBtn.className = 'd-none';
+  switch (option){
+    case 'artist-option':
+      searchArtistBtn.className = 'd-block';
+      break;
+    case 'song-option':
+      searchSongBtn.className = 'd-block';
+      break;
+    case 'playlist-option':
+      searchPlaylistBtn.className = 'd-block';
+      break;
+    default: 
+      return;
+  };
+  // searchResults.className = 'd-block';
+
+}

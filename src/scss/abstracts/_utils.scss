@@ -38,3 +38,6 @@
 form + form {
   margin-top: 1rem;
 }
+section form {
+  @extend .w-100
+}

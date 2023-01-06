@@ -37,9 +37,9 @@ const newFormHandler = async (event) => {
       }
     }
   };
-  if (document.getElementById('#new-post-form')){
+  if (document.getElementById('new-post-form')){
     document
-      .getElementById('#new-post-form')
+      .getElementById('new-post-form')
       .addEventListener('submit', newFormHandler);
   }
   
