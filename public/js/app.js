@@ -134,7 +134,9 @@ var playlistPlayer = document.getElementById('playlist-iframe');
 
 // one spotify api token makes all API calls
 var apiToken = document.getElementById("api-token");
-
+var postArtistBtn = document.getElementById('new-artist-post');
+var postSongBtn = document.getElementById('new-song-post');
+var postPlaylistBtn = document.getElementById('new-playlist-post');
 // // search artist button
 // searchArtistBtn.addEventListener('click', async function (e) {
 //     e.preventDefault();
@@ -155,27 +157,30 @@ searchArtistBtn.addEventListener('click', async function (e) {
   // const spotifyArtistPlayer = await artistPlayer.setAttribute('src', `https://open.spotify.com/embed/artist/${artistId}?utm_source=generator`);
   const spotifyArtistPlayer = await allPlayer.setAttribute('src', `https://open.spotify.com/embed/artist/${artistId}?utm_source=generator`);
   searchResults.className = 'd-block';
+  // newPostForm.className = 'd-block';
   // const artists_name = await _shareArtist.artists.items[0].name;
   // postSubject.textContent = artists_name;
 });
 // search song button
 searchSongBtn.addEventListener('click', async function (e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    // const songSearched = await _searchSong(searchSongInput.value);
-    const songSearched = await _searchSong(searchInput.value);
-    const songSearchedId = await _searchSongForId(searchInput.value);
-    const spotifySongPlayer = await allPlayer.setAttribute('src', `https://open.spotify.com/embed/track/${songSearchedId}?utm_source=generator`);
-    
+  // const songSearched = await _searchSong(searchSongInput.value);
+  const songSearched = await _searchSong(searchInput.value);
+  const songSearchedId = await _searchSongForId(searchInput.value);
+  const spotifySongPlayer = await allPlayer.setAttribute('src', `https://open.spotify.com/embed/track/${songSearchedId}?utm_source=generator`);
+  searchResults.className = 'd-block';
+
 });
 
 // search playlist button
 searchPlaylistBtn.addEventListener('click', async function (e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    // const playlistSearched = await _searchPlaylist(searchPlaylistInput.value);
-    const playlistSearched = await _searchPlaylist(searchInput.value);
-    const spotifyPlaylistPlayer = await allPlayer.setAttribute('src', `https://open.spotify.com/embed/user/spotify/playlist/${playlistSearched}`);
+  // const playlistSearched = await _searchPlaylist(searchPlaylistInput.value);
+  const playlistSearched = await _searchPlaylist(searchInput.value);
+  const spotifyPlaylistPlayer = await allPlayer.setAttribute('src', `https://open.spotify.com/embed/user/spotify/playlist/${playlistSearched}`);
+  searchResults.className = 'd-block';
 
 });
 var artistShareArray = [];
@@ -195,7 +200,7 @@ const _shareArtist = async (artistName) => {
   // var artistNameIdShare = data.artists.items[0].id;
   var image = data.artists.items[0].images[0].url;
   artistShareArray.push(artists_name, image);
-  // console.log(artistShareArray);
+  console.log(`artistShareArray:` + artistShareArray);
 };
 
 // Creating a function to store Artist Search (Artist Name and Album Image) to Post Table
@@ -244,7 +249,7 @@ const _shareSong = async (songName) => {
   // var songAlbumIdShare = data.tracks.items[0].album.id;
   var image = data.tracks.items[0].album.images[0].url;
   songShareArray.push(track_name, artists_name, album_name, image);
-  // console.log(songShareArray);
+  console.log(`songShareArray:` +  songShareArray);
 };
 
 // Creating a function to store Song Search (Track Name, Artist Name and Image) to Post Table
@@ -297,6 +302,8 @@ const _sharePlaylist = async (playlistName) => {
   // var playlistOwnerId = data.playlists.items[0].owner.id;
   var image = data.playlists.items[0].images[0].url;
   playlistShareArray.push(playlist_name, image);
+  console.log(`playlistShareArray:` + playlistShareArray);
+
 };
 
 // Creating a function to store Playlist Search (Playlist Name and Image) to Post Table
@@ -333,53 +340,91 @@ const NewPlaylistPostHandler = async (event) => {
 
 // });
 
-// share song button
-if (shareSongBtn) {shareSongBtn.addEventListener('click', async function (e) {
-    e.preventDefault();
+
+
+
+
+
+
+
+
+
+
 // When new Artist is searched and the Share Artist Post button is clicked save to Database Post Table
 
-if (document.querySelector(".new-artist-post")) {
-  document
-    .querySelector(".new-artist-post")
-    .addEventListener("submit", NewArtistPostHandler);
+if (postArtistBtn) {
+  postArtistBtn.addEventListener("click", NewArtistPostHandler);
 }
+
+
+// if (document.getElementById("new-artist-post")) {
+//   document
+//     .getElementById("new-artist-post")
+//     .addEventListener("submit", NewArtistPostHandler);
+// }
+
 
 // When new Song is searched and the Share Song Post button is clicked save to Database Post Table
 
-if (document.querySelector(".new-song-post")) {
-  document
-    .querySelector(".new-song-post")
-    .addEventListener("submit", NewSongPostHandler);
+// if (document.getElementById("new-song-post")) {
+//   document
+//     .getElementById("new-song-post")
+//     .addEventListener("submit", NewSongPostHandler);
+// }
+
+if (postSongBtn) {
+  postSongBtn.addEventListener("click", NewSongPostHandler);
 }
+
 
 // When new Playlist is searched and the Share Playlist Post button is clicked save to Database Post Table
+// if (document.getElementById("new-playlist-post")) {
+//   document
+//     .getElementById("new-playlist-post")
+//     .addEventListener("submit", NewPlaylistPostHandler);
+// }
 
-});
+if (postPlaylistBtn) {
+  postPlaylistBtn.addEventListener("click", NewPlaylistPostHandler);
 }
 
-// share playlist button
-if (sharePlaylistBtn) {sharePlaylistBtn.addEventListener('click', async function (e) {
-    e.preventDefault();
-if (document.querySelector(".new-playlist-post")) {
-  document
-    .querySelector(".new-playlist-post")
-    .addEventListener("submit", NewPlaylistPostHandler);
-}
+// share song button
+// if (shareSongBtn) {
+//   shareSongBtn.addEventListener('click', async function (e) {
+//     e.preventDefault();
+
+    // share playlist button
+    // if (sharePlaylistBtn) {
+    //   sharePlaylistBtn.addEventListener('click', async function (e) {
+    //     e.preventDefault();
+
 
 // When Search song button is clicked it also sends data array to console log
 searchArtistBtn.addEventListener("click", async function (e) {
   e.preventDefault();
 
-  const artistShared = await _shareArtist(searchArtistInput.value);
+  const artistShared = await _shareArtist(searchInput.value);
 });
 
 // When Search song button is clicked it also sends data array to console log
 searchSongBtn.addEventListener("click", async function (e) {
   e.preventDefault();
+  const songSearched = await _searchSong(searchInput.value);
+  const songShared = await _shareSong(searchInput.value);
+});
+// });
 
-});}
+// When Search song button is clicked it also sends data array to console log
+searchPlaylistBtn.addEventListener("click", async function (e) {
+  e.preventDefault();
 
-// save the music data when Share Artist button is submitted
+
+  const playlistShared = await _sharePlaylist(searchInput.value);
+});
+
+//       // save the music data when Share Artist button is submitted
+//     });
+// }
 
 
 
@@ -387,10 +432,10 @@ searchSongBtn.addEventListener("click", async function (e) {
 // // save the post when Share button is submitted
 // const newFormHandler = async (event) => {
 //     event.preventDefault();
-  
+
 //     const name = document.querySelector('#post-name').value.trim();
 //     const description = document.querySelector('#post-desc').value.trim();
-  
+
 //     if (name && description) {
 //       const response = await fetch(`/api/posts`, {
 //         method: 'POST',
@@ -399,7 +444,7 @@ searchSongBtn.addEventListener("click", async function (e) {
 //           'Content-Type': 'application/json',
 //         },
 //       });
-  
+
 //       if (response.ok) {
 //         document.location.replace('/mainstage');
 //       } else {
@@ -419,38 +464,37 @@ const searchSection = document.getElementById('search-section');
 const searchBySong = document.getElementById('song-section');
 const searchByPlaylist = document.getElementById('playlist-section');
 const searchResults = document.getElementById('search-results');
+const newPostForm = document.getElementById('new-post-form');
 
-searchOption.addEventListener('change', (event) => {toggleElement(event.target.value)});
+searchOption.addEventListener('change', (event) => {
+  toggleElement(event.target.value)
+});
+
+
 
 
 function toggleElement(option) {
   searchArtistBtn.className = 'd-none';
-  // searchByArtist.className = 'd-none';
   searchSongBtn.className = 'd-none';
   searchPlaylistBtn.className = 'd-none';
-  switch (option){
+  postArtistBtn.className = 'd-none';
+  postSongBtn.className = 'd-none';
+  postPlaylistBtn.className = 'd-none';
+  switch (option) {
     case 'artist-option':
       searchArtistBtn.className = 'd-block';
+      postArtistBtn.className = 'd-block';
       break;
     case 'song-option':
       searchSongBtn.className = 'd-block';
+      postSongBtn.className = 'd-block';
       break;
     case 'playlist-option':
       searchPlaylistBtn.className = 'd-block';
+      postPlaylistBtn.className = 'd-block';
       break;
-    default: 
-      return;
-  };
+    default: return;
+  }
   // searchResults.className = 'd-block';
+};
 
-}
-  const songSearched = await _searchSong(searchSongInput.value);
-  const songShared = await _shareSong(searchSongInput.value);
-});
-
-// When Search song button is clicked it also sends data array to console log
-searchPlaylistBtn.addEventListener("click", async function (e) {
-  e.preventDefault();
-
-  const playlistShared = await _sharePlaylist(searchPlaylistInput.value);
-});

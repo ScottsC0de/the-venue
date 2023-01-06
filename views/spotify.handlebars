@@ -7,89 +7,93 @@
 
 
   {{!-- <section id="artist-section" class="d-none"> --}}
-  <section id="search-section" class="w-100">
-    <form >
-      <label for="search-field">What are you looking for?:</label>
-      <input id="search-field" name="search-field" type="text" placeholder="ex: The Beatles, Dr. Feelgood, 70's Dad Rock" />
-  <select name="choose-search" id="choose-search">
-    <option>Search by...</option>
-    <option value="artist-option">Artist</option>
-    <option value="song-option">Song</option>
-    <option value="playlist-option">Playlist</option>
-  </select>
-      <div id="search-btn">
-        <button id="artist-btn" class="d-none">Search Artist</button>
-        <button id="song-btn" class="d-none">Search Song</button>
-        <button id="search-playlist-btn" class="d-none">Search Playlists</button>
-      </div>
-
-      <div id="search-results" class="d-none">
-        <div class="iframe-wrapper">
-          <iframe class="responsive-iframe" id="spotify-iframe" frameborder="0" allowtransparency="true"></iframe>
+    <section id="search-section" class="w-100">
+      <form>
+        <label for="search-field">What are you looking for?:</label>
+        <input id="search-field" name="search-field" type="text"
+          placeholder="ex: The Beatles, Dr. Feelgood, 70's Dad Rock" />
+        <select name="choose-search" id="choose-search">
+          <option>Search by...</option>
+          <option value="artist-option">Artist</option>
+          <option value="song-option">Song</option>
+          <option value="playlist-option">Playlist</option>
+        </select>
+        <div id="search-btn">
+          <button id="artist-btn" class="d-none">Search Artist</button>
+          <button id="song-btn" class="d-none">Search Song</button>
+          <button id="search-playlist-btn" class="d-none">Search Playlists</button>
         </div>
-      </div>
-    </form>
-    <form action="" id="new-post-form">
-      <h3>Create a post</h3>
-        <label for="post-subject">Subject:</label>
-        <input class="form-input" type="text" id="post-subject" name="post-subject">
+
+        <div id="search-results" class="d-none">
+          <div class="iframe-wrapper">
+            <iframe class="responsive-iframe" id="spotify-iframe" frameborder="0" allowtransparency="true"></iframe>
+          </div>
+        </div>
+      </form>
+      <form action="" id="new-post-form" class="">
+        <h3>Create a post</h3>
+        {{!-- <label for="post-subject">Subject:</label>
+        <input class="form-input" type="text" id="post-subject" name="post-subject"> --}}
         <label for="post-name">Title:</label>
-        <input class="form-input" type="text" id="post-name" name="post-name" />
+        <input class="form-input" type="text" id="post-name" name="post-name" required/>
         <label for="post-desc">Content:</label>
-        <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
+        <textarea class="form-input" id="post-desc" name="post-desc" required></textarea>
         {{!-- <button type="submit" class="btn" id="share-artist-btn">Post!</button> --}}
-        <button type="submit" class="btn" id="share-btn">Post!</button>
-    </form>
-  </section>
+        <button type="submit" class="d-none" id="new-artist-post">Post!</button>
+        <button type="submit" class="d-none" id="new-song-post">Post!</button>
+        <button type="submit" class="d-none" id="new-playlist-post">Post!</button>
 
-  {{!-- <form action="" id="song-section" class="d-none">
-    <label for="">Enter Song Here:</label><br />
-    <p>It should come up...</p>
-    <input id="search-song" type="text" placeholder="Come Together" /><br />
-    <button id="song-btn">Get Song</button><br />
-    <div id="song-search-results">
-      <iframe id="song-iframe" width="650" height="380" frameborder="0" allowtransparency="true"></iframe><br />
-      <h3>Share your searched Music to Main Stage:</h3>
-      <form class="form new-post-form">
-        <div class="form-group">
-          <label for="post-name">Title:</label>
-          <input class="form-input" type="text" id="post-name" name="post-name" />
-        </div>
-        <div class="form-group">
-          <label for="post-desc">content:</label>
-          <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
-        </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary">Create</button>
-          <button type="submit" class="btn" id="share-song-btn">Share Song</button>
-        </div>
       </form>
+    </section>
 
-    </div>
-  </form> --}}
+    {{!-- <form action="" id="song-section" class="d-none">
+      <label for="">Enter Song Here:</label><br />
+      <p>It should come up...</p>
+      <input id="search-song" type="text" placeholder="Come Together" /><br />
+      <button id="song-btn">Get Song</button><br />
+      <div id="song-search-results">
+        <iframe id="song-iframe" width="650" height="380" frameborder="0" allowtransparency="true"></iframe><br />
+        <h3>Share your searched Music to Main Stage:</h3>
+        <form class="form new-post-form">
+          <div class="form-group">
+            <label for="post-name">Title:</label>
+            <input class="form-input" type="text" id="post-name" name="post-name" />
+          </div>
+          <div class="form-group">
+            <label for="post-desc">content:</label>
+            <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn" id="share-song-btn">Share Song</button>
+          </div>
+        </form>
 
-  {{!-- <form action="" id="playlist-section" class="d-none">
-    <label for="">Enter Spotify Playlist Here:</label><br />
-    <p>It should come up...</p>
-    <input id="search-playlist" type="text" placeholder="70s Dad Rock" /><br />
-    <button id="search-playlist-btn">Get Playlist</button><br />
-    <form id="playlist-search-results">
-      <iframe id="playlist-iframe" width="650" height="380" frameborder="0" allowtransparency="true"></iframe>
-      <h3>Share your searched Music to Main Stage:</h3>
-      <form class="form new-post-form">
-        <div class="form-group">
-          <label for="post-name">Title:</label>
-          <input class="form-input" type="text" id="post-name" name="post-name" />
-        </div>
-        <div class="form-group">
-          <label for="post-desc">content:</label>
-          <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
-        </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary">Create</button>
-          <button type="submit" class="btn" id="share-playlist-btn">Share Playlist</button>
-        </div>
-      </form>
+      </div>
+    </form> --}}
+
+    {{!-- <form action="" id="playlist-section" class="d-none">
+      <label for="">Enter Spotify Playlist Here:</label><br />
+      <p>It should come up...</p>
+      <input id="search-playlist" type="text" placeholder="70s Dad Rock" /><br />
+      <button id="search-playlist-btn">Get Playlist</button><br />
+      <form id="playlist-search-results">
+        <iframe id="playlist-iframe" width="650" height="380" frameborder="0" allowtransparency="true"></iframe>
+        <h3>Share your searched Music to Main Stage:</h3>
+        <form class="form new-post-form">
+          <div class="form-group">
+            <label for="post-name">Title:</label>
+            <input class="form-input" type="text" id="post-name" name="post-name" />
+          </div>
+          <div class="form-group">
+            <label for="post-desc">content:</label>
+            <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn" id="share-playlist-btn">Share Playlist</button>
+          </div>
+        </form>
 
 </div>
 </form> --}}
@@ -118,5 +122,7 @@
 </div>
 
 <script src="./js/app.js"></script>
-<script src="./js/profile.js"></script>
-{{!-- <script src="./js/searchforms.js" type="text/javascript"></script> --}}
+{{!--
+<script src="./js/profile.js"></script> --}}
+{{!--
+<script src="./js/searchforms.js" type="text/javascript"></script> --}}
