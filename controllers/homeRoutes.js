@@ -37,7 +37,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-//Get the individual blogpost for blogpost handlebars
+//Get the individual blogpost for blogpost handlebars and render the specific blogpost ID
 
 router.get('/blogpost/:id', async (req, res) => {
   try {
@@ -64,8 +64,7 @@ router.get('/blogpost/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-//Get the individual blogpost comment for blogpost handlebars or change to blogcomment handlebars
+//Get the individual blogpost for blogpost handlebars and render the specific comments made on that blogpost ID
 router.get('/blogpost/:id', async (req, res) => {
   try {
     const commentData = await Comment.findAll(req.params.id, {
@@ -88,7 +87,7 @@ router.get('/blogpost/:id', async (req, res) => {
   }
 });
 
-// Update Route
+// Update Blogpost Route accessible from backstage (spotify handlebars)
 router.get('/blogpost/update/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {

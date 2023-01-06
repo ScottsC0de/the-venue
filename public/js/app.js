@@ -137,6 +137,10 @@ var apiToken = document.getElementById("api-token");
 var postArtistBtn = document.getElementById('new-artist-post');
 var postSongBtn = document.getElementById('new-song-post');
 var postPlaylistBtn = document.getElementById('new-playlist-post');
+
+// delete button for user posts
+var deletePostBtn = document.getElementById('delete-post');
+
 // // search artist button
 // searchArtistBtn.addEventListener('click', async function (e) {
 //     e.preventDefault();
@@ -340,13 +344,22 @@ const NewPlaylistPostHandler = async (event) => {
 
 // });
 
+// To delete a post from the groupies post list in backstage
+const delButtonHandler = async (event) => {
+  if (event.target.hasAttribute('data-id')) {
+    const id = event.target.getAttribute('data-id');
 
+    const response = await fetch(`/api/posts/${id}`, {
+      method: 'DELETE',
+    });
 
-
-
-
-
-
+    if (response.ok) {
+      document.location.replace('/spotify');
+    } else {
+      alert('Failed to delete post');
+    }
+  }
+};
 
 
 
@@ -386,6 +399,12 @@ if (postSongBtn) {
 
 if (postPlaylistBtn) {
   postPlaylistBtn.addEventListener("click", NewPlaylistPostHandler);
+}
+
+
+// when delete button is clicked next to post
+if (deletePostBtn) {
+  deletePostBtn.addEventListener("click", delButtonHandler);
 }
 
 // share song button

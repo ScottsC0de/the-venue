@@ -107,10 +107,10 @@
       {{#each posts as |post|}}
       <div class="row mb-2">
         <div class="col-md-8">
-          <p><a href="/post/update/{{post.id}}">{{post.name}}</a></p>
+          <p><a href="/blogpost/update/{{post.id}}">{{post.name}}</a></p>
         </div>
         <div class="col-md-4">
-          <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
+          <button id= "delete-post" class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
         </div>
       </div>
       {{/each}}
