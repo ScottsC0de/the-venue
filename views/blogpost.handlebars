@@ -1,20 +1,27 @@
+
+{{> nav}}
 <h2>This is the Blogpost section</h2>
 <article>
-  <h3>{{post.title}}</h3>
-  <p>{{post.song}} by {{post.artist}}</p>
-  {{post.text}}
-  <aside>{{post.username}} at {{post.timestamp}}</aside>
+  <h3>{{name}}</h3>
+  <p>{{track_name}} by {{artists_name}}</p>
+  {{description}}
+  <aside>{{user.name}} on {{format_date date_created}}</aside>
+   
 
 </article>
 <div id="crowd">
   <h3>The Crowd</h3>
-  {{>blogcomments}}
+  
   <div class="row">
-    <form action="">
+    <form >
+        <div class="form-group">
       <h4>Throw your comment into the crowd</h4>
       <label for="comment">Comment: </label>
-      <textarea name="comment" id="post_comment" cols="auto" rows="6"></textarea>
-      <input type="submit" value="Submit">
+      <textarea name="comment" id="comment" cols="auto" rows="6"></textarea>
+              <button class="btn btn-warning me-2" id="postComment">Save Comment</button>
+              </div>
     </form>
+    {{>blogcomments}}
   </div>
 </div>
+<script src="/js/comment.js"></script>

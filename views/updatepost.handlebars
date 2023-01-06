@@ -1,0 +1,20 @@
+  <h2>
+    Edit Your Shared Music Post
+    </h2>
+    <div>
+    Posted by you on {{format_date date_created}}
+    </div>
+
+  <form class="edit-post-form">
+    <div>
+      <textarea class="form-input" name="post-name" type="text" id="post-name">{{name}}</textarea>
+      <textarea class="form-input" name="post-desc" id="post-desc">{{description}}</textarea>
+    </div>
+   
+    
+    </div>
+    <button type="submit" id="updatePost">Save post</button>
+    
+  </form>
+
+  <script src="/js/updatepost.js"></script>

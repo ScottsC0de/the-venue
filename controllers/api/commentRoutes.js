@@ -18,4 +18,26 @@ router.post("/",withAuth, async (req, res) => {
   }
 });
 
+//delete a comment
+router.delete("/:id",withAuth, async (req, res) => {
+  try {
+    const postComment = await Comment.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    });
+
+    if (!postComment) {
+      res.status(404).json({ message: "No comment found with this id!" });
+      return; 
+    } 
+     
+    res.status(200).json(postComment);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 module.exports = router;
