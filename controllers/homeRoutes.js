@@ -68,55 +68,6 @@ router.get('/blogpost/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
-//Get the individual blogpost for blogpost handlebars and render the specific comments made on that blogpost ID
-router.get('/blogpost/:id', async (req, res) => {
-  try {
-    const commentData = await Comment.findAll(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
-
-    const comment = commentData.get({ plain: true });
-
-    res.render('blogpost', {
-      ...comment,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-// Update Blogpost Route accessible from backstage (spotify handlebars)
-router.get('/blogpost/update/:id', async (req, res) => {
-  try {
-    const postData = await Post.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-        {
-          model: Comment,
-            attributes: ['id', 'content', 'date_created','post_id', 'user_id'],
-          },
-        ],
-      });
-  
-      const post = postData.get({ plain: true });
-  
-      res.render('updatepost', {
-        ...post,
-        logged_in: req.session.logged_in,
-      });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
   
   // Use withAuth middleware to prevent access to route
   router.get('/spotify', withAuth, async (req, res) => {
