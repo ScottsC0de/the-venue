@@ -35,7 +35,7 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    album_image: {
+    image: {
       type: DataTypes.STRING,
       allowNull: true,
     },
