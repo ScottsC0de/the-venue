@@ -381,7 +381,8 @@ form {
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow) $accent-color;
   display: block;
-  max-width: var(--width-card-wide);
+  // max-width: var(--width-card-wide);
+  max-width: 100%;
   min-width: var(--width-card);
   padding: 1.5rem;
   text-align: var(--justify-normal);

@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     if (req.session.logged_in) {
-      res.redirect('/');
+      res.redirect('/spotify');
       return;
     }
     const userData = await User.findOne({ where: { email: req.body.email } });

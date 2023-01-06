@@ -3,9 +3,13 @@ const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 // const tracks = require('../public/js/modules/example-songs');
 
-router.get('/spotify', async (req, res) => {
-  res.render('spotifyapi', {})
-});
+// router.get('/spotify', async (req, res) => {
+//   res.render('spotify', {
+//     logged_in: req.session.logged_in,
+
+//   });
+//   // console.log(`logged in? ${logged_in}`);
+// });
 
 router.get('/', async (req, res) => {
 
@@ -104,7 +108,7 @@ router.get('/blogpost/update/:id', async (req, res) => {
   
       res.render('updatepost', {
         ...post,
-        logged_in: req.session.logged_in
+        logged_in: req.session.logged_in,
       });
     } catch (err) {
       res.status(500).json(err);
@@ -112,19 +116,20 @@ router.get('/blogpost/update/:id', async (req, res) => {
   });
   
   // Use withAuth middleware to prevent access to route
-  router.get('/spotifyapi', withAuth, async (req, res) => {
+  router.get('/spotify', withAuth, async (req, res) => {
     try {
       // Find the logged in user based on the session ID
       const userData = await User.findByPk(req.session.user_id, {
         attributes: { exclude: ['password'] },
         include: [{ model: Post }],
+        logged_in: req.session.logged_in,
       });
   
       const user = userData.get({ plain: true });
   
-      res.render('spotifyapi', {
+      res.render('spotify', {
         ...user,
-        logged_in: true
+        logged_in: req.session.logged_in,
       });
     } catch (err) {
       res.status(500).json(err);
@@ -134,7 +139,7 @@ router.get('/blogpost/update/:id', async (req, res) => {
   router.get('/login', (req, res) => {
     // If the user is already logged in, redirect the request to another route
     if (req.session.logged_in) {
-      res.redirect('/spotifyapi');
+      res.redirect('/spotify');
       return;
     }
   

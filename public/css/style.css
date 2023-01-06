@@ -7,6 +7,44 @@
   display: none;
 }
 
+.no-wrap {
+  flex-wrap: nowrap;
+}
+
+.space-evenly {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.iframe-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 75%;
+}
+
+/* Then style the iframe to fit in the container div with full height and width */
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.w-100, section form {
+  width: 100%;
+}
+
+form + form {
+  margin-top: 1rem;
+}
+
 :root {
   --active-brightness: 0.85;
   --border-radius: 5px;
@@ -381,7 +419,7 @@ form {
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow) #530cc5;
   display: block;
-  max-width: var(--width-card-wide);
+  max-width: 100%;
   min-width: var(--width-card);
   padding: 1.5rem;
   text-align: var(--justify-normal);
