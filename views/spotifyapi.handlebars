@@ -1,0 +1,124 @@
+{{> nav}}
+<div id="backstage">
+  <h3>Backstage with {{name}}</h3>
+
+  <title>The Venue Record Store Branch</title>
+  </head>
+
+  <body>
+    <h1>Record Store</h1>
+    <p>Search an artist's top tracks, song name, or Spotify playlist</p>
+
+    <select name="choose-search" id="choose-search">
+      <option>Search by...</option>
+      <option value="artist-option">Artist</option>
+      <option value="song-option">Song</option>
+      <option value="playlist-option">Playlist</option>
+    </select>
+
+    <div class="column form new-artist-post">
+      <form action="" id="artist-section" class="d-none">
+        <label for="">Enter Artist Name Here:</label><br />
+        <p>Their top tracks should come up...</p>
+        <input id="search-artist" type="text" placeholder="The Beatles" /><br />
+        <button id="artist-btn">Get Top Tracks</button><br />
+        <div id="artist-search-results">
+          <iframe id="artist-iframe" width="650" height="380" frameborder="0" allowtransparency="true"></iframe><br />
+          <h3>Share your searched Music to Main Stage:</h3>
+          <form class="form new-artist-post">
+            <div class="form-group">
+              <label for="post-name">Title:</label>
+              <input class="form-input" type="text" id="post-name" name="post-name" />
+            </div>
+            <div class="form-group">
+              <label for="post-desc">content:</label>
+              <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Share Artist Post</button>
+            </div>
+          </form>
+        </div>
+      </form>
+    </div>
+
+<div class="column form new-song-post">
+    <form action="" id="song-section" class="d-none">
+      <label for="">Enter Song Here:</label><br />
+      <p>It should come up...</p>
+      <input id="search-song" type="text" placeholder="Come Together" /><br />
+      <button id="song-btn">Get Song</button><br />
+      <div id="song-search-results">
+        <iframe id="song-iframe" width="650" height="380" frameborder="0" allowtransparency="true"></iframe><br />
+        <h3>Share your searched Music to Main Stage:</h3>
+        <form class="form new-song-post">
+          <div class="form-group">
+            <label for="post-name">Title:</label>
+            <input class="form-input" type="text" id="post-name" name="post-name" />
+          </div>
+          <div class="form-group">
+            <label for="post-desc">content:</label>
+            <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Share Song Post</button>
+          </div>
+        </form>
+      </div>
+    </form>
+</div>
+
+<div class="column form new-playlist-post">
+    <form action="" id="playlist-section" class="d-none">
+      <label for="">Enter Spotify Playlist Here:</label><br />
+      <p>It should come up...</p>
+      <input id="search-playlist" type="text" placeholder="70s Dad Rock" /><br />
+      <button id="search-playlist-btn">Get Playlist</button><br />
+      <div id="playlist-search-results">
+        <iframe id="playlist-iframe" width="650" height="380" frameborder="0" allowtransparency="true"></iframe>
+        <h3>Share your searched Music to Main Stage:</h3>
+        <form class="form new-playlist-post">
+          <div class="form-group">
+            <label for="post-name">Title:</label>
+            <input class="form-input" type="text" id="post-name" name="post-name" />
+          </div>
+          <div class="form-group">
+            <label for="post-desc">content:</label>
+            <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Share Playlist Post</button>
+          </div>
+        </form>
+      </div>
+    </form>
+    </div>
+
+    <div>
+      <h3>Your shared searched Music to the Main Stage:</h3>
+      <div class="col-md-6">
+        {{#if posts.length}}
+        <div class="post-list">
+          {{#each posts as |post|}}
+          <div class="row mb-2">
+            <div class="col-md-8">
+              <p><a href="/post/update/{{post.id}}">{{post.name}}</a></p>
+            </div>
+            <div class="col-md-4">
+              <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+        {{/if}}
+      </div>
+    </div>
+
+    <script src="./js/app.js"></script>
+    {{!--
+    <script src="./js/profile.js"></script> --}}
+    <script src="./js/searchforms.js" type="text/javascript"></script>
+
+  </body>
+
+  </html>
