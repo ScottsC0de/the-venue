@@ -423,6 +423,8 @@ searchArtistBtn.addEventListener("click", async function (e) {
   e.preventDefault();
 
   const artistShared = await _shareArtist(searchInput.value);
+  newPostForm.className = 'd-block';
+
 });
 
 // When Search song button is clicked it also sends data array to console log
@@ -430,6 +432,8 @@ searchSongBtn.addEventListener("click", async function (e) {
   e.preventDefault();
   const songSearched = await _searchSong(searchInput.value);
   const songShared = await _shareSong(searchInput.value);
+  newPostForm.className = 'd-block';
+
 });
 // });
 
@@ -439,6 +443,8 @@ searchPlaylistBtn.addEventListener("click", async function (e) {
 
 
   const playlistShared = await _sharePlaylist(searchInput.value);
+  newPostForm.className = 'd-block';
+
 });
 
 //       // save the music data when Share Artist button is submitted
@@ -515,5 +521,6 @@ function toggleElement(option) {
     default: return;
   }
   // searchResults.className = 'd-block';
+  // newPostForm.className = 'd-block';
 };
 
