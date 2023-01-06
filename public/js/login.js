@@ -15,9 +15,9 @@ const loginFormHandler = async (event) => {
   
       if (response.status===200) {
         // If successful, redirect the browser to the profile page
-        document.location.replace('/spotifyapi');
+        document.location.replace('/spotify');
       } else {
-        alert(response.statusText);
+        alert('incorrect username or password');
       }
     }
   };
@@ -42,7 +42,7 @@ const loginFormHandler = async (event) => {
       });
   
       if (response.status===200) {
-        document.location.replace('/spotifyapi');
+        document.location.replace('/spotify');
       } else {
         alert(response.statusText);
       }
