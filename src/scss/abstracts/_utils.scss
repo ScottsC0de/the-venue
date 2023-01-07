@@ -38,6 +38,8 @@
 form + form {
   margin-top: 1rem;
 }
-section form {
+section form, section .post-card {
   @extend .w-100
 }
+
+$post-img-size: 150px;

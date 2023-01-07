@@ -37,7 +37,7 @@
   height: 100%;
 }
 
-.w-100, section form {
+.w-100, section form, section .post-card {
   width: 100%;
 }
 
@@ -593,12 +593,12 @@ blockquote footer {
 }
 
 #hero {
-  background-image: url("../assets/crowd.jpg");
+  background-image: url("/assets/crowd.jpg");
   text-decoration: none;
 }
 
 #groupieHero {
-  background-image: url("../assets/groupies.jpg");
+  background-image: url("/assets/groupies.jpg");
 }
 
 #heroSub {
@@ -648,6 +648,8 @@ h6 {
   background-color: #530cc5;
   color: #efedda;
   padding: 0 10px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 table {
@@ -711,37 +713,98 @@ article aside {
   flex: 60% 0 1;
 }
 
+.commentBtn {
+  background-color: #a43636;
+  border-color: #a43636;
+}
+
 .deleteBtn-wrapper, .commentBtn-wrapper {
   position: relative;
   margin: 0 0 10px 10px;
 }
 
-.deleteBtn, .commentBtn {
+.deleteBtn {
   position: absolute;
   bottom: 0.5rem;
   right: 1rem;
   font-size: 14px;
+  color: #efedda;
+}
+
+.commentBtn a:link, .commentBtn a:hover, .commentBtn a:active, .commentBtn a:visited {
+  color: #efedda;
 }
 
 .post-card {
   padding: 1rem 6rem 1rem 1rem;
+  padding: 1rem;
+}
+.post-card h3 {
+  background-color: transparent;
+  color: #1c1b1b;
+  padding: 0;
 }
 
 .post-title-card {
   display: flex;
   gap: 15px;
   align-items: center;
-  font-size: 18px;
+  font-size: 20px;
+}
+
+.post-description {
+  border-bottom: 1px #a43636 solid;
+  padding-bottom: 1rem;
+  font-size: 16px;
+}
+
+.post-card-header {
+  display: flex;
+  gap: 15px;
+  align-content: flex-end;
+  font-size: 20px;
+  flex-wrap: wrap;
 }
 
 .post-img-card img {
-  object-fit: contain;
   width: 150px;
   height: 150px;
 }
 
-.post-wrapper + .post-wrapper {
+.post-card-header-title {
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  flex-grow: 1;
+}
+
+.post-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.commentBtn {
+  justify-self: flex-end;
+  margin: 10px;
+}
+
+.icon {
+  background-color: none;
+  color: #a43636;
+  position: relative;
+  left: 40px;
+  transform: scale(3);
+}
+
+.post-card + .post-card {
   margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+form {
+  margin-bottom: 1rem;
 }
 
 .timestamp {
@@ -749,7 +812,7 @@ article aside {
 }
 
 .text-lg {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */
