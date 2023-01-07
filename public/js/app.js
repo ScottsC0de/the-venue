@@ -139,7 +139,7 @@ var postSongBtn = document.getElementById('new-song-post');
 var postPlaylistBtn = document.getElementById('new-playlist-post');
 
 // delete button for user posts
-var deletePostBtn = document.getElementById('delete-post');
+var deletePostBtn = document.querySelector('.deleteBtn');
 
 // // search artist button
 // searchArtistBtn.addEventListener('click', async function (e) {
