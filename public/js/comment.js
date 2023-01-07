@@ -32,13 +32,11 @@ const delButtonHandler = async (event) => {
       if (response.ok) {
         document.location.reload();
       } else {
-        alert('Failed to delete comment');
+        alert('You can not delete another users comment!');
       }
     }
   };
-if (document.querySelector('#postComment')){
-  document.querySelector('#postComment').addEventListener('click', postCommentHandler);
-}
-if (document.querySelector('.comment-list')){
-  document.querySelector('.comment-list').addEventListener('click', delButtonHandler);
-}
+
+document.querySelector('#postComment').addEventListener('click', postCommentHandler);
+
+document.querySelector('.comment-list').addEventListener('click', delButtonHandler);

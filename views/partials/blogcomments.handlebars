@@ -1,11 +1,13 @@
+<div class="comment-list w-100">
 {{#each comments as |comment|}}
-<div class=" card post-card comment-list">
+<div class=" card post-card ">
   <p class="text-lg">{{comment.content}}</p>
 
 
   <div class="post-card-footer">
     <p class="timestamp">{{user.name}} commented on {{format_date date_created}}</p>
-    <button class="comment-list" data-id="{{comment.id}}">DELETE</button>
+    <button  data-id="{{comment.id}}">DELETE</button>
   </div>
 </div>
 {{/each}}
+</div>

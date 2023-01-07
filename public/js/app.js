@@ -140,16 +140,8 @@ var postPlaylistBtn = document.getElementById('new-playlist-post');
 
 // delete button for user posts
 var deletePostBtn = document.querySelector('.deleteBtn');
+var deletePostList = document.querySelector('.post-list');
 
-// // search artist button
-// searchArtistBtn.addEventListener('click', async function (e) {
-//     e.preventDefault();
-
-//     const artistId = await _searchArtist(searchArtistInput.value);
-//     const getTheTracks = await _getArtistTopTracks(artistId);
-//     const spotifyArtistPlayer = await artistPlayer.setAttribute('src', `https://open.spotify.com/embed/artist/${artistId}?utm_source=generator`);
-
-// });
 
 // // search general button
 searchArtistBtn.addEventListener('click', async function (e) {
@@ -336,14 +328,6 @@ const NewPlaylistPostHandler = async (event) => {
   }
 };
 
-// // share artist button
-// shareArtistBtn.addEventListener('click', async function (e) {
-//     e.preventDefault();
-
-//     const artistShared = await _shareArtist(searchArtistInput.value);
-
-// });
-
 // To delete a post from the groupies post list in backstage
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
@@ -362,7 +346,6 @@ const delButtonHandler = async (event) => {
 };
 
 
-
 // When new Artist is searched and the Share Artist Post button is clicked save to Database Post Table
 
 if (postArtistBtn) {
@@ -370,32 +353,13 @@ if (postArtistBtn) {
 }
 
 
-// if (document.getElementById("new-artist-post")) {
-//   document
-//     .getElementById("new-artist-post")
-//     .addEventListener("submit", NewArtistPostHandler);
-// }
-
-
-// When new Song is searched and the Share Song Post button is clicked save to Database Post Table
-
-// if (document.getElementById("new-song-post")) {
-//   document
-//     .getElementById("new-song-post")
-//     .addEventListener("submit", NewSongPostHandler);
-// }
 
 if (postSongBtn) {
   postSongBtn.addEventListener("click", NewSongPostHandler);
 }
 
 
-// When new Playlist is searched and the Share Playlist Post button is clicked save to Database Post Table
-// if (document.getElementById("new-playlist-post")) {
-//   document
-//     .getElementById("new-playlist-post")
-//     .addEventListener("submit", NewPlaylistPostHandler);
-// }
+
 
 if (postPlaylistBtn) {
   postPlaylistBtn.addEventListener("click", NewPlaylistPostHandler);
@@ -403,24 +367,16 @@ if (postPlaylistBtn) {
 
 
 // when delete button is clicked next to post
-if (deletePostBtn) {
-  deletePostBtn.addEventListener("click", delButtonHandler);
+if (deletePostList) {
+  deletePostList.addEventListener("click", delButtonHandler);
 }
-
-// share song button
-// if (shareSongBtn) {
-//   shareSongBtn.addEventListener('click', async function (e) {
-//     e.preventDefault();
-
-    // share playlist button
-    // if (sharePlaylistBtn) {
-    //   sharePlaylistBtn.addEventListener('click', async function (e) {
-    //     e.preventDefault();
 
 
 // When Search song button is clicked it also sends data array to console log
 searchArtistBtn.addEventListener("click", async function (e) {
   e.preventDefault();
+
+  artistShareArray.length = 0;
 
   const artistShared = await _shareArtist(searchInput.value);
   newPostForm.className = 'd-block';
@@ -430,6 +386,7 @@ searchArtistBtn.addEventListener("click", async function (e) {
 // When Search song button is clicked it also sends data array to console log
 searchSongBtn.addEventListener("click", async function (e) {
   e.preventDefault();
+  songShareArray.length = 0;
   const songSearched = await _searchSong(searchInput.value);
   const songShared = await _shareSong(searchInput.value);
   newPostForm.className = 'd-block';
@@ -441,48 +398,13 @@ searchSongBtn.addEventListener("click", async function (e) {
 searchPlaylistBtn.addEventListener("click", async function (e) {
   e.preventDefault();
 
-
+  playlistShareArray.length = 0;
   const playlistShared = await _sharePlaylist(searchInput.value);
   newPostForm.className = 'd-block';
 
 });
 
-//       // save the music data when Share Artist button is submitted
-//     });
-// }
 
-
-
-
-// // save the post when Share button is submitted
-// const newFormHandler = async (event) => {
-//     event.preventDefault();
-
-//     const name = document.querySelector('#post-name').value.trim();
-//     const description = document.querySelector('#post-desc').value.trim();
-
-//     if (name && description) {
-//       const response = await fetch(`/api/posts`, {
-//         method: 'POST',
-//         body: JSON.stringify({ name, description }),
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//       });
-
-//       if (response.ok) {
-//         document.location.replace('/mainstage');
-//       } else {
-//         alert('Failed to create post');
-//       }
-//     }
-//   };
-
-//   if (document.querySelector('.new-post-form')){
-//     document
-//       .querySelector('.new-post-form')
-//       .addEventListener('submit', newFormHandler);
-//   }
 const searchOption = document.getElementById('choose-search');
 const searchSection = document.getElementById('search-section');
 // const searchByArtist = document.getElementById('artist-section');
