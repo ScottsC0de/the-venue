@@ -36,7 +36,9 @@ const delButtonHandler = async (event) => {
       }
     }
   };
-
-document.querySelector('#postComment').addEventListener('click', postCommentHandler);
-
-document.querySelector('.comment-list').addEventListener('click', delButtonHandler);
+if (document.querySelector('#postComment')){
+  document.querySelector('#postComment').addEventListener('click', postCommentHandler);
+}
+if (document.querySelector('.comment-list')){
+  document.querySelector('.comment-list').addEventListener('click', delButtonHandler);
+}
