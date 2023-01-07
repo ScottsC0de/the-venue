@@ -1,27 +1,53 @@
 
 {{> nav}}
-<h2>This is the Blogpost section</h2>
-<article>
-  <h3>{{name}}</h3>
-  <p>{{track_name}} by {{artists_name}}</p>
-  {{description}}
-  <aside>{{user.name}} on {{format_date date_created}}</aside>
-   
+{{!-- <h2>This is the Blogpost section</h2> --}}
+<section>
+    <div class="card post-card">
+      <div class="post-card-header">
+        <div class="post-img-card">
+          <img src="{{image}}" alt="{{track_name}}{{artists_name}}{{playlist_name}}">
+        </div>
+        <div class="post-card-header-title">
+          {{!-- <span class="icon">&#9830;</span> --}}
+          <h3>
+            {{track_name}}
+            {{artists_name}}
+            {{playlist_name}}
+          </h3>
+          <p><strong> {{name}}</strong></p>
 
-</article>
-<div id="crowd">
-  <h3>The Crowd</h3>
+        </div>
+          <p class="post-description">{{description}}</p>
+      </div>
+
+      <div class="post-card-footer">
+        <p class="timestamp">Posted by {{user.name}} on {{format_date date_created}}</p>
+
+      </div>
+    </div>
+</section>
+  <h2>The Crowd</h2>
+<section>
   
-  <div class="row">
+    {{> blogcomments}}
     <form >
         <div class="form-group">
-      <h4>Throw your comment into the crowd</h4>
+      <strong>
+        <p>Throw your comment into the crowd</p>
+      </strong>
       <label for="comment">Comment: </label>
       <textarea name="comment" id="comment" cols="auto" rows="6"></textarea>
               <button class="btn btn-warning me-2" id="postComment">Save Comment</button>
               </div>
     </form>
-    {{>blogcomments}}
-  </div>
-</div>
+
+
+</section>
+
+
+
+
+
+
+
 <script src="/js/comment.js"></script>

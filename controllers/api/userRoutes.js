@@ -49,6 +49,7 @@ router.post('/login', async (req, res) => {
       
       res.json({ user: userData, message: 'You are now logged in!' });
       // document.location.replace('/');
+      // document.location.reload();
     });
 
   } catch (err) {

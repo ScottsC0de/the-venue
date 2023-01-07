@@ -1,0 +1,42 @@
+<h3>Your posts on the Main Stage</h3>
+{{#if posts.length}}
+<div>
+  {{#each posts as |post|}}
+<div class="post-wrapper">
+
+  <div class="card post-card">
+    <div class="post-title-card">
+      <div class="post-img-card">
+        <img src="{{post.image}}" alt="">
+      
+      </div>
+      <p>
+        {{post.track_name}}
+        {{post.artists_name}}
+        {{post.playlist_name}}
+      </p>
+    </div>
+    <p><strong> <a href="/api/posts/{{post.id}}">{{post.name}}</a></strong></p>
+    <p>{{post.description}}</p>
+    <p class="timestamp">Posted by you on {{format_date date_created}}</p>
+
+  </div>
+  <div class="deleteBtn-wrapper">
+    <button id="delete-post" class="deleteBtn" data-id="{{post.id}}">DELETE</button>
+  </div>
+</div>
+
+  {{/each}}
+  {{else}}
+  <p>You have no posts yet.</p>
+</div>
+{{/if}}
+
+{{!-- post.id --}}
+{{!-- post.name --}}
+{{!-- post.description --}}
+{{!-- post.track_name --}}
+{{!-- post.artists_name --}}
+{{!-- post.album_name --}}
+{{!-- post.playlist_name --}}
+{{!-- post.image --}}

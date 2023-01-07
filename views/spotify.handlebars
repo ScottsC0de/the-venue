@@ -2,14 +2,13 @@
 <div id="backstage">
   <h1>Backstage with {{name}}</h1>
 
-  <h2>Record Store</h2>
-  <p>Search an artist's top tracks, song name, or Spotify playlist</p>
+  {{!-- <h2>Record Store</h2> --}}
 
 
-  {{!-- <section id="artist-section" class="d-none"> --}}
     <section id="search-section" class="w-100">
+
       <form>
-        <label for="search-field">What are you looking for?:</label>
+        <label for="search-field">Create a post by searching an artist's top tracks, a song name, or Spotify playlist</label>
         <input id="search-field" name="search-field" type="text"
           placeholder="ex: The Beatles, Dr. Feelgood, 70's Dad Rock" />
         <select name="choose-search" id="choose-search">
@@ -18,6 +17,7 @@
           <option value="song-option">Song</option>
           <option value="playlist-option">Playlist</option>
         </select>
+        {{!-- these three buttons off by default, and get set to d-block by app.js toggleElement function--}}
         <div id="search-btn">
           <button id="artist-btn" class="d-none">Search Artist</button>
           <button id="song-btn" class="d-none">Search Song</button>
@@ -30,15 +30,13 @@
           </div>
         </div>
       </form>
-      <form action="" id="new-post-form" class="">
+      <form action="" id="new-post-form" class="d-none">
         <h3>Create a post</h3>
-        {{!-- <label for="post-subject">Subject:</label>
-        <input class="form-input" type="text" id="post-subject" name="post-subject"> --}}
         <label for="post-name">Title:</label>
         <input class="form-input" type="text" id="post-name" name="post-name" required/>
         <label for="post-desc">Content:</label>
         <textarea class="form-input" id="post-desc" name="post-desc" required></textarea>
-        {{!-- <button type="submit" class="btn" id="share-artist-btn">Post!</button> --}}
+        {{!-- these three buttons off by default, and get set to d-block by app.js toggleElement function--}}
         <button type="submit" class="d-none" id="new-artist-post">Post!</button>
         <button type="submit" class="d-none" id="new-song-post">Post!</button>
         <button type="submit" class="d-none" id="new-playlist-post">Post!</button>
@@ -46,83 +44,8 @@
       </form>
     </section>
 
-    {{!-- <form action="" id="song-section" class="d-none">
-      <label for="">Enter Song Here:</label><br />
-      <p>It should come up...</p>
-      <input id="search-song" type="text" placeholder="Come Together" /><br />
-      <button id="song-btn">Get Song</button><br />
-      <div id="song-search-results">
-        <iframe id="song-iframe" width="650" height="380" frameborder="0" allowtransparency="true"></iframe><br />
-        <h3>Share your searched Music to Main Stage:</h3>
-        <form class="form new-post-form">
-          <div class="form-group">
-            <label for="post-name">Title:</label>
-            <input class="form-input" type="text" id="post-name" name="post-name" />
-          </div>
-          <div class="form-group">
-            <label for="post-desc">content:</label>
-            <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
-          </div>
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary">Create</button>
-            <button type="submit" class="btn" id="share-song-btn">Share Song</button>
-          </div>
-        </form>
-
-      </div>
-    </form> --}}
-
-    {{!-- <form action="" id="playlist-section" class="d-none">
-      <label for="">Enter Spotify Playlist Here:</label><br />
-      <p>It should come up...</p>
-      <input id="search-playlist" type="text" placeholder="70s Dad Rock" /><br />
-      <button id="search-playlist-btn">Get Playlist</button><br />
-      <form id="playlist-search-results">
-        <iframe id="playlist-iframe" width="650" height="380" frameborder="0" allowtransparency="true"></iframe>
-        <h3>Share your searched Music to Main Stage:</h3>
-        <form class="form new-post-form">
-          <div class="form-group">
-            <label for="post-name">Title:</label>
-            <input class="form-input" type="text" id="post-name" name="post-name" />
-          </div>
-          <div class="form-group">
-            <label for="post-desc">content:</label>
-            <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
-          </div>
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary">Create</button>
-            <button type="submit" class="btn" id="share-playlist-btn">Share Playlist</button>
-          </div>
-        </form>
-
-</div>
-</form> --}}
 </div>
 
-<div>
-  <h3>Your posts on the Main Stage:</h3>
-  <div class="col-md-6">
-    {{#if posts.length}}
-    <div class="post-list">
-      {{#each posts as |post|}}
-      <div class="row mb-2">
-        <div class="col-md-8">
-          <p><a href="/api/posts/{{post.id}}">{{post.name}}</a></p>
-        </div>
-        <div class="col-md-4">
-          <button id= "delete-post" class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
-        </div>
-      </div>
-      {{/each}}
-    </div>
-    {{else}}
-    <p>You have no posts yet.</p>
-    {{/if}}
-  </div>
-</div>
+{{> users_posts}}
 
 <script src="./js/app.js"></script>
-{{!--
-<script src="./js/profile.js"></script> --}}
-{{!--
-<script src="./js/searchforms.js" type="text/javascript"></script> --}}
