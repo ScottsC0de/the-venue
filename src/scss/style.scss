@@ -681,11 +681,11 @@ article aside {
   flex: 60% 0 1;
 }
 
-.deleteBtn-wrapper {
+.deleteBtn-wrapper, .commentBtn-wrapper {
   position: relative;
   margin: 0 0 10px 10px;
 }
-.deleteBtn {
+.deleteBtn, .commentBtn {
   position: absolute;
   bottom: .5rem;
   right: 1rem;
