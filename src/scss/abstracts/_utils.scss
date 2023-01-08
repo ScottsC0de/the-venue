@@ -38,8 +38,11 @@
 form + form {
   margin-top: 1rem;
 }
-section form, section .post-card {
+section form{
   @extend .w-100
 }
 
 $post-img-size: 150px;
+.comment-list > div {
+  width: 100%;
+}

@@ -37,12 +37,16 @@
   height: 100%;
 }
 
-.w-100, section form, section .post-card {
+.w-100, section form {
   width: 100%;
 }
 
 form + form {
   margin-top: 1rem;
+}
+
+.comment-list > div {
+  width: 100%;
 }
 
 :root {
@@ -341,7 +345,7 @@ input[type=submit] {
   font-weight: bold;
   line-height: var(--line-height);
   margin: 0.5rem 0;
-  padding: 1rem 2rem;
+  padding: 0.5rem;
 }
 
 button {
@@ -420,7 +424,6 @@ form {
   box-shadow: var(--box-shadow) #530cc5;
   display: block;
   max-width: 100%;
-  min-width: var(--width-card);
   padding: 1.5rem;
   text-align: var(--justify-normal);
   background-color: #efedda;
@@ -713,31 +716,30 @@ article aside {
   flex: 60% 0 1;
 }
 
-.commentBtn {
+.commentBtn,
+.deleteBtn {
   background-color: #a43636;
   border-color: #a43636;
 }
 
-.deleteBtn-wrapper, .commentBtn-wrapper {
+.deleteBtn-wrapper,
+.commentBtn-wrapper {
   position: relative;
   margin: 0 0 10px 10px;
 }
 
-.deleteBtn {
-  position: absolute;
-  bottom: 0.5rem;
-  right: 1rem;
-  font-size: 14px;
-  color: #efedda;
-}
-
-.commentBtn a:link, .commentBtn a:hover, .commentBtn a:active, .commentBtn a:visited {
+.commentBtn a:link,
+.commentBtn a:hover,
+.commentBtn a:active,
+.commentBtn a:visited {
   color: #efedda;
 }
 
 .post-card {
-  padding: 1rem 6rem 1rem 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   padding: 1rem;
+  max-width: var(--width-content);
 }
 .post-card h3 {
   background-color: transparent;
@@ -782,10 +784,12 @@ article aside {
 .post-card-footer {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-.commentBtn {
+.commentBtn,
+.deleteBtn {
   justify-self: flex-end;
   margin: 10px;
 }
@@ -798,17 +802,14 @@ article aside {
   transform: scale(3);
 }
 
-.post-card + .post-card {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
 form {
+  margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
 .timestamp {
   font-size: 12px;
+  color: #1c1b1b;
 }
 
 .text-lg {
