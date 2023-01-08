@@ -2,20 +2,6 @@
 // Docs/Endpoints: https://developer.spotify.com/documentation/web-api/reference/#/
 // Console: https://developer.spotify.com/console/
 
-// The Venue - title
-// Security Check - login page
-// Cover Charge - button to confirm
-// Main Stage - user content to be posted
-// BackStage - user's playlists, songs, etc
-// The Bar - sidebar
-// The Crowd - comment section
-// Groupie - account name
-
-// Future Updates:
-// VIP subscription
-// all other spotify api endpoints
-// convert to jQuery
-
 // source: https://www.youtube.com/watch?v=0dmS0He_czs
 // source: https://www.youtube.com/watch?v=SbelQW2JaDQ&t=417s
 
@@ -330,7 +316,7 @@ const NewPlaylistPostHandler = async (event) => {
 
 // To delete a post from the groupies post list in backstage
 const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
+  if (event.target.hasAttribute('data-id') && (window.confirm('Are you sure you want to delete this post?'))) {
     const id = event.target.getAttribute('data-id');
 
     const response = await fetch(`/api/posts/${id}`, {
