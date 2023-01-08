@@ -1,16 +1,23 @@
-  <nav>
-   <a href="/">Main Stage</a> 
-    <!-- If the user is logged in, show a logout button -->
-    {{#if logged_in}}
-    <button id="logout-btn" >Logout</button>
-    {{else}}
-    <!-- Otherwise, show a link to login -->
-    <a href="/login"><strong>Login</strong></a>
-    {{/if}}
-    {{!-- {{#unless (req.path === '/backstage') }} --}}
-    <a href="/spotify">Back Stage</a>
-    {{!-- {{/unless}} --}}
-      {{#if logged_in}}
+<nav>
+  {{!-- don't show Main Stage link on main stage page --}}
+  {{#unless isOnMainStage}}
+  <a href="/"><strong>Main Stage</strong></a>
+  {{/unless}}
+
+  {{!-- don't show Back Stage link on main stage page --}}
+  {{#unless isOnBackStage}}
+  <a href="/spotify"><strong>Back Stage</strong></a>
+  {{/unless}}
+
+  <!-- If the user is logged in, show a logout button -->
+  {{#if logged_in}}
+  <button id="logout-btn">Logout</button>
+  {{else}}
+  <!-- Otherwise, show a link to login -->
+  <a href="/login"><strong>Login</strong></a>
+  {{/if}}
+  
+  {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
-  </nav>
+</nav>

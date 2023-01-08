@@ -1,15 +1,9 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
-// const tracks = require('../public/js/modules/example-songs');
+const isOnMainStage = require('../utils/helpers');
+const isOnBackStage = require('../utils/helpers');
 
-// router.get('/spotify', async (req, res) => {
-//   res.render('spotify', {
-//     logged_in: req.session.logged_in,
-
-//   });
-//   // console.log(`logged in? ${logged_in}`);
-// });
 
 router.get('/', async (req, res) => {
 
@@ -30,7 +24,8 @@ router.get('/', async (req, res) => {
     // Pass serialized data and session flag into template
     res.render('mainstage', {
       posts,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+      isOnMainStage,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -84,6 +79,7 @@ router.get('/blogpost/:id', async (req, res) => {
       res.render('spotify', {
         ...user,
         logged_in: req.session.logged_in,
+        isOnBackStage,
       });
     } catch (err) {
       res.status(500).json(err);

@@ -22,7 +22,7 @@ postCommentHandler = async (event) => {
 
 const delButtonHandler = async (event) => {
     event.preventDefault();
-    if (event.target.hasAttribute('data-id')) {
+    if (event.target.hasAttribute('data-id') && (window.confirm('Are you sure you want to delete this comment?'))) {
       const id = event.target.getAttribute('data-id');
   
       const response = await fetch(`/api/comments/${id}`, {

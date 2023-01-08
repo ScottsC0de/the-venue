@@ -316,7 +316,7 @@ const NewPlaylistPostHandler = async (event) => {
 
 // To delete a post from the groupies post list in backstage
 const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
+  if (event.target.hasAttribute('data-id') && (window.confirm('Are you sure you want to delete this post?'))) {
     const id = event.target.getAttribute('data-id');
 
     const response = await fetch(`/api/posts/${id}`, {
