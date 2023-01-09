@@ -11,7 +11,9 @@
 let token;
 
 window.addEventListener("load", async function (e) {
-  const result = await fetch("http://localhost:3001/api/token");
+  // const result = await fetch("http://localhost:3001/api/token");
+  const result = await fetch("https://the-venue.herokuapp.com/api/token");
+
   const data = await result.json();
   token = data.token;
 });
