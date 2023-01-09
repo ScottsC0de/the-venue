@@ -1,7 +1,32 @@
+$padding-sm: 5px;
+$padding-lg: 10px;
+$padding-xl: 20px;
+
 .d-block {
   display: block;
 }
-
 .d-none {
   display: none;
+}
+.no-wrap {
+  flex-wrap: nowrap;
+}
+.space-evenly {
+  justify-content: space-between;
+}
+.align-center {
+  align-items: center;
+}
+.w-100 {
+  width: 100%;
+}
+form + form {
+  margin-top: 1rem;
+}
+section form{
+  @extend .w-100
+}
+
+.comment-list > div {
+  width: 100%;
 }

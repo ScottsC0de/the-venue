@@ -1,0 +1,48 @@
+{{> nav}}
+<div id="backstage">
+  <h1>Backstage with {{name}}</h1>
+
+    <section id="search-section" class="w-100">
+
+      <form>
+        <label for="search-field">Create a post by searching an artist's top tracks, a song name, or Spotify playlist</label>
+        <input id="search-field" name="search-field" type="text"
+          placeholder="ex: The Beatles, Dr. Feelgood, 70's Dad Rock" />
+        <select name="choose-search" id="choose-search">
+          <option>Search by...</option>
+          <option value="artist-option">Artist</option>
+          <option value="song-option">Song</option>
+          <option value="playlist-option">Playlist</option>
+        </select>
+        {{!-- these three buttons off by default, and get set to d-block by app.js toggleElement function--}}
+        <div id="search-btn">
+          <button id="artist-btn" class="d-none">Search Artist</button>
+          <button id="song-btn" class="d-none">Search Song</button>
+          <button id="search-playlist-btn" class="d-none">Search Playlists</button>
+        </div>
+
+        <div id="search-results" class="d-none">
+          <div class="iframe-wrapper">
+            <iframe class="responsive-iframe" id="spotify-iframe" frameborder="0" allowtransparency="true"></iframe>
+          </div>
+        </div>
+      </form>
+      <form action="" id="new-post-form" class="d-none">
+        <h3>Create a post</h3>
+        <label for="post-name">Title:</label>
+        <input class="form-input" type="text" id="post-name" name="post-name" required/>
+        <label for="post-desc">Content:</label>
+        <textarea class="form-input" id="post-desc" name="post-desc" required></textarea>
+        {{!-- these three buttons off by default, and get set to d-block by app.js toggleElement function--}}
+        <button type="submit" class="d-none" id="new-artist-post">Post!</button>
+        <button type="submit" class="d-none" id="new-song-post">Post!</button>
+        <button type="submit" class="d-none" id="new-playlist-post">Post!</button>
+
+      </form>
+    </section>
+
+</div>
+
+{{> users_posts}}
+
+<script src="./js/app.js"></script>

@@ -1,0 +1,36 @@
+{{#if posts.length}}
+<section>
+  <div class="post-list">
+  {{#each posts as |post|}}
+
+  <div class="card post-card">
+    <div class="post-card-header">
+      <div class="post-img-card">
+        <img src="{{post.image}}" alt="{{post.track_name}}{{post.artists_name}}{{post.playlist_name}}">
+      </div>
+
+      <div class="post-card-header-title">
+        <h3>
+          {{post.track_name}}
+          {{post.artists_name}}
+          {{post.playlist_name}}
+        </h3>
+        <p><strong> {{post.name}}</strong></p>
+      </div>
+    </div>
+    <p class="post-description">{{post.description}}</p>
+
+    <div class="post-card-footer">
+      <span class="timestamp">Posted by {{user.name}} on {{format_date date_created}}</span>
+      <button class="commentBtn"><a href="/blogpost/{{post.id}}">Comment</a></button>
+    </div>
+
+  </div>
+  {{/each}}
+  </div>
+  {{else}}
+  <p>There are no posts yet.</p>
+  </div>
+  {{/if}}
+
+  <script src="/js/comment.js"></script>
