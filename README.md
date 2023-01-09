@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # The Venue
 Argue with your friends and complete strangers about the music you love
 
@@ -65,8 +64,3 @@ Hit any of us with an email for questions!</br>
 **mikewebprint@gmail.com**</br>
 **Scott5902@gmail.com**
 
-=======
-# the-venue
-
-background svg image courtesy of https://www.svgbackgrounds.com/
->>>>>>> bbf7add078017a00f0bf91014af20fdfffb54ad8
